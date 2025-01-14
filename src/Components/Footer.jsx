@@ -1,11 +1,14 @@
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo-medCamp.png'
 
 const Footer = () => {
     return (
         <div>
-           <div className="footer bg-[#40b176] text-white p-10">
+           <div className="footer bg-primary text-white p-10">
   <aside>
-   <img src={logo} alt="logo" className='h-10 rounded-sm' />
+  <Link>
+  <img src={logo} alt="logo" className='h-10 rounded-sm' />
+  </Link>
     <p>
       Arranging medical camps since 2019
     </p>
@@ -49,7 +52,7 @@ const Footer = () => {
     </div>
   </nav>
 </div>
-<div className="footer footer-center bg-[#40b176] text-white p-4">
+<div className="footer footer-center bg-primary text-white p-4">
   <aside>
     <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
   </aside>

@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo-medCamp.png"
+import useAuth from "../Hooks/useAuth";
 
 {/* <li>
 <a>Parent</a>
@@ -10,7 +11,7 @@ import logo from "../assets/logo-medCamp.png"
 </li> */}
 
 const Navbar = () => {
-
+const{user,logout,registered, setRegistered}=useAuth()
     const links=<>
             <li><NavLink to={"/"}>Home</NavLink></li>
             <li><NavLink to={"/camps"}>Available Camps</NavLink></li>
@@ -19,7 +20,7 @@ const Navbar = () => {
         </>
     return (
         <div>
-          <div className="navbar bg-[#40b176] text-white px-10">
+          <div className="navbar bg-primary text-white px-10">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,7 +39,7 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-primary rounded-box z-[1] mt-3 w-52 p-2 shadow">
         {links}
       </ul>
     </div>
@@ -51,7 +52,20 @@ const Navbar = () => {
       </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Join Us</a>
+   { user ?  
+   
+   <div className="dropdown dropdown-end">
+  <div tabIndex={0} role="button" className="btn m-1">{user?.email}</div>
+  <ul tabIndex={0} className="dropdown-content menu bg-primary rounded-box z-[1] w-52 p-2 shadow">
+    <li><p>{user.email}</p></li>
+    <li><Link to={"/dashboard"}>Dashboard</Link></li>
+    <li><button onClick={()=>{logout(); setRegistered(false)}}>Logout</button></li>
+  </ul>
+</div>
+   
+   : 
+    <Link to={"/join-us"}>
+    <button>Join Us</button></Link>}
   </div>
 </div>
 

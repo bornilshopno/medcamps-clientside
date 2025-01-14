@@ -2,9 +2,11 @@ import {
     createBrowserRouter,
     Link
   } from "react-router-dom";
-import Layout from "./Layout";
+import Layout from "./HomeLayout";
 import Home from "../Pages/Home/Home";
 import Camps from "../Pages/Camps/Camps";
+import JoinUs from "../Auths/JoinUs";
+import DashboardLayout from "./DashboardLayout";
 
   const router = createBrowserRouter([
     {
@@ -20,9 +22,19 @@ import Camps from "../Pages/Camps/Camps";
         {
             path: "/camps",
             element:<Camps></Camps>
+        },
+        {
+          path:"/join-us",
+          element:<JoinUs></JoinUs>
         }
       ]
     },
+
+    //dashboard routes
+    {
+      path:"/dashboard",
+      element:<DashboardLayout></DashboardLayout>
+    }
   ]);
 
 export default router;
