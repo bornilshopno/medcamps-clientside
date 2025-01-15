@@ -13,7 +13,7 @@ const image_hosting_key = import.meta.env.VITE_IMGBB_HOSTING_API;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 // to add image inside form
 const Register = () => {
-  const axiosPublic=useAxiosPublic();
+  const axiosPublicly=useAxiosPublic();
   const { setRegistered, createUser, setUser, setLoading, updateUserProfile } = useAuth();
 
   const navigate = useNavigate()
@@ -26,7 +26,7 @@ const Register = () => {
     console.log(data);
     //image upload to imgbb and then get an url
     const imageFile = { image: data.image[0] }
-    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+    const res = await axiosPublicly.post(image_hosting_api, imageFile, {
       headers: {
         'content-type': 'multipart/form-data'
       }
@@ -44,36 +44,36 @@ const Register = () => {
           updateUserProfile(data.name, res.data.data.display_url)
           .then(() => {
             console.log("user pro ino updated");
-            // const userInfo = {
-            //   name: data.name,
-            //   email: data.email,
-            //   role:"user"
-            // }
-            // axiosPublic.post('/users', userInfo)
-            //   .then(res => {
-            //     if (res.data.insertedId) {
-            //       Swal.fire({
-            //         title: "User Created Successfully",
-            //         showClass: {
-            //           popup: `
-            //       animate__animated
-            //       animate__fadeInUp
-            //       animate__faster
-            //     `
-            //         },
-            //         hideClass: {
-            //           popup: `
-            //       animate__animated
-            //       animate__fadeOutDown
-            //       animate__faster
-            //     `
-            //         }
-            //       });
-            //       reset();
-            //       navigate("/");
+            const userInfo = {
+              name: data.name,
+              email: data.email,
+              role:"user"
+            }
+            axiosPublicly.post('/users', userInfo)
+              .then(res => {
+                if (res.data.insertedId) {
+                  Swal.fire({
+                    title: "User Created Successfully",
+                    showClass: {
+                      popup: `
+                  animate__animated
+                  animate__fadeInUp
+                  animate__faster
+                `
+                    },
+                    hideClass: {
+                      popup: `
+                  animate__animated
+                  animate__fadeOutDown
+                  animate__faster
+                `
+                    }
+                  });
+                  reset();
+                  navigate("/");
 
-            //     }
-            //   })
+                }
+              })
 
           })
           .catch(error => { console.log(error) })

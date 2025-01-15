@@ -6,8 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 
 const Login = () => {
-    const{registered, setRegistered,userLogin, loading, setLoading }=useAuth()
-   
+    const { registered, setRegistered, userLogin, loading, setLoading } = useAuth()
+
     const navigate = useNavigate()
     const location = useLocation();
     const locs = location.state?.from?.pathname || "/";
@@ -44,9 +44,9 @@ const Login = () => {
     }
     return (
         <div>
-          
+
             <div className=" bg-base-200 max-w-96 mx-auto">
-                <div className="hero-content ">                   
+                <div className="hero-content ">
                     <div className="card bg-base-100 w-full  shrink-0 shadow-2xl ">
                         <form className="card-body pb-0" onSubmit={handleLogin}>
                             <div className="form-control">
@@ -72,7 +72,7 @@ const Login = () => {
                                 <button className="btn btn-primary" disabled={disable}>Login</button>
                             </div>
                         </form>
-                        <p className='text-center pb-4'>New to the website? pls <span className='text-blue-700 font-semibold'><button onClick={()=>setRegistered(false)}>Sign Up</button></span> </p>
+                        <p className='text-center pb-4'>New to the website? pls <span className='text-blue-700 font-semibold'><button onClick={() => setRegistered(false)}>Sign Up</button></span> </p>
                     </div>
                 </div>
             </div>

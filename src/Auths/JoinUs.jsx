@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet-async";
 
 const JoinUs = () => {
     const{registered, setRegistered}=useAuth()
-console.log(registered)
+
     return (
         <>
         <Helmet>
