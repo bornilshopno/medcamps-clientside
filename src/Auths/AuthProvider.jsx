@@ -20,9 +20,9 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             //jwt => get token and set client
             if (currentUser) {
-                const userInfo = currentUser.email;
+                const userInfo = {email:currentUser.email};
                 axiosPublicly.post("jwt", userInfo)
-                .then(res=>{console.log(res.data);
+                .then(res=>{
                     if (res.data.token) {
                         localStorage.setItem('access-token', res.data.token);
                         //can be checked from client side=>inspect==>Application==>LocalStorage==>clientURL[when login/logout]
@@ -40,33 +40,6 @@ const AuthProvider = ({ children }) => {
     }, [auth,axiosPublicly])
 
 
-    // useEffect(() => {
-    //     const unSubscribe = onAuthStateChanged(auth, currentUser => {
-    //         setUser(currentUser);
-
-    //     }
-    // if (currentUser) {
-    //     // get token and store client 
-    //     const userInfo = { email: currentUser.email }
-    //     axiosPublicly.post('/jwt', userInfo)
-    //         .then(res => {
-    //             console.log(res.data)
-    //         if (res.data.token) {
-    //             localStorage.setItem('access-token', res.data.token);
-    //             //can be checked from client side=>inspect==>Application==>LocalStorage==>clientURL[when login/logout]
-    //         }
-    //  })
-    // }
-    // else {
-    //     //TO DO : remove token(if token stored in the client side [localStorage, caching, inMemory])
-    //     //for HTTP only== cookies need to remove from server side
-    //     localStorage.removeItem('access-token')
-    //         // }
-    //         console.log("CurrentUser from statechanged", currentUser)
-    //         setLoading(false)
-    //     // })
-    //     return (() => unSubscribe())  //in module it was return inside of an array funciton
-    // }, [auth,])
 
 
     const createUser = (email, password) => {

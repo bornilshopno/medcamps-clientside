@@ -1,20 +1,16 @@
-
-import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-// import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
-
 import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 
-
+// to add image inside form
 const image_hosting_key = import.meta.env.VITE_IMGBB_HOSTING_API;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-// to add image inside form
+
 const Register = () => {
   const axiosPublicly=useAxiosPublic();
-  const { setRegistered, createUser, setUser, setLoading, updateUserProfile } = useAuth();
+  const { setRegistered, createUser, setUser,logout, setLoading, updateUserProfile } = useAuth();
 
   const navigate = useNavigate()
   const {
@@ -43,17 +39,22 @@ const Register = () => {
         if (res.data.success) {
           updateUserProfile(data.name, res.data.data.display_url)
           .then(() => {
-            console.log("user pro ino updated");
+            console.log("user profile updated");
             const userInfo = {
               name: data.name,
               email: data.email,
               role:"user"
             }
             axiosPublicly.post('/users', userInfo)
-              .then(res => {
-                if (res.data.insertedId) {
+              .then(res => {console.log(res);
+                if (res.data._id) {
+                 console.log("user info successfully posted in Databas")
+                  reset();
+                  logout();
+                  setRegistered(true);
+                  navigate("/join-us");
                   Swal.fire({
-                    title: "User Created Successfully",
+                    title: "Registered Successfully, pls LOGIN to continue",
                     showClass: {
                       popup: `
                   animate__animated
@@ -69,8 +70,6 @@ const Register = () => {
                 `
                     }
                   });
-                  reset();
-                  navigate("/");
 
                 }
               })
@@ -84,7 +83,7 @@ const Register = () => {
 
   }
 
-  //console.log(watch("example")) // watch input value by passing the name of it
+
 
   return (
     <div>

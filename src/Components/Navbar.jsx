@@ -13,6 +13,7 @@ import { BsFillMenuButtonWideFill } from "react-icons/bs";
 
 const Navbar = () => {
 const{user,logout,registered, setRegistered}=useAuth()
+
     const links=<>
             <li><NavLink to={"/"}>Home</NavLink></li>
             <li><NavLink to={"/camps"}>Available Camps</NavLink></li>
@@ -57,7 +58,9 @@ const{user,logout,registered, setRegistered}=useAuth()
    { user ?  
    
    <div className="dropdown dropdown-end">
-  <div tabIndex={0} role="button" className="btn m-1">{user?.email}</div>
+  <div tabIndex={0} role="button" className="border-2 border-secondary rounded-xl bg-white p-[2px]">
+    <img src={user?.photoURL} alt="" className="h-10 w-10 object-cover rounded-lg"/>
+  </div>
   <ul tabIndex={0} className="dropdown-content menu bg-primary rounded-box z-[1] w-52 p-2 shadow">
     <li><p>{user.email}</p></li>
     <li><Link to={"/dashboard"}>Dashboard</Link></li>

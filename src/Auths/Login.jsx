@@ -1,12 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { Helmet } from 'react-helmet-async';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useForm } from "react-hook-form"
 
 import useAuth from '../Hooks/useAuth';
 
 const Login = () => {
     const { registered, setRegistered, userLogin, loading, setLoading } = useAuth()
+    const {
+        register,
+        handleSubmit, reset,
+        formState: { errors },
+      } = useForm();// for react hook form
+
+
+
+
 
     const navigate = useNavigate()
     const location = useLocation();
@@ -16,21 +25,35 @@ const Login = () => {
     useEffect(() => {
         loadCaptchaEnginge(6);
     }, [])
-    const handleLogin = e => {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        // console.log(email, password);
-        userLogin(email, password)
-            .then(res => {
-                const user = res.user;
-                console.log(user)
-                setLoading(false)
-                navigate(locs, { replace: true })
 
-            })
+    const onSubmit = (data) => {
+        userLogin(data.email, data.password)
+        .then(res => {
+            const user = res.user;
+            console.log(user)
+            setLoading(false)
+            reset();
+            navigate(locs, { replace: true })
+
+        })
     }
+
+
+    // const handleLogin = e => {
+    //     e.preventDefault();
+    //     const form = e.target;
+    //     const email = form.email.value;
+    //     const password = form.password.value;
+    //     // console.log(email, password);
+    //     userLogin(email, password)
+    //         .then(res => {
+    //             const user = res.user;
+    //             console.log(user)
+    //             setLoading(false)
+    //             navigate(locs, { replace: true })
+
+    //         })
+    // }
 
     const handleValidateCaptcha = () => {
         const value = captchaRef.current.value;
@@ -48,18 +71,18 @@ const Login = () => {
             <div className=" bg-base-200 max-w-96 mx-auto">
                 <div className="hero-content ">
                     <div className="card bg-base-100 w-full  shrink-0 shadow-2xl ">
-                        <form className="card-body pb-0" onSubmit={handleLogin}>
+                        <form className="card-body pb-0" onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" name="email" className="input input-bordered h-10" required />
+                                <input type="email" placeholder="email" name="email" {...register("email", { required: true })} className="input input-bordered h-10" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" name="password" className="input input-bordered h-10" required />
+                                <input type="password" placeholder="password" name="password" {...register("password", { required: true })} className="input input-bordered h-10" required />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>

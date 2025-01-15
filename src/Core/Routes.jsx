@@ -33,7 +33,43 @@ import DashboardLayout from "./DashboardLayout";
     //dashboard routes
     {
       path:"/dashboard",
-      element:<DashboardLayout></DashboardLayout>
+      element:<DashboardLayout></DashboardLayout>,
+      children:[
+        //admin-dashboard routes
+        {
+          path: "adminProfile",
+          element: <h2>Hellow World</h2>
+        },
+        {
+          path: "addCamp",
+          element: <h2>Hellow World</h2>
+        },
+        {
+          path: "manageCamp",
+          element: <h2>Hellow World</h2>
+        },
+        {
+          path: "manageRegCamps",
+          element: <h2>Hellow World</h2>
+        },
+        //user dashboard routes
+        {
+          path: "userProfile",
+          element: <h2>Hellow World</h2>
+        },
+        {
+          path: "analytics",
+          element: <h2>Hellow World</h2>
+        },
+        {
+          path: "regCamps",
+          element: <h2>Hellow World</h2>
+        },
+        {
+          path: "paymentHistory",
+          element: <h2>Hellow World</h2>
+        },
+      ]
     }
   ]);
 
