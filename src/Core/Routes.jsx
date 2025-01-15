@@ -7,6 +7,14 @@ import Home from "../Pages/Home/Home";
 import Camps from "../Pages/Camps/Camps";
 import JoinUs from "../Auths/JoinUs";
 import DashboardLayout from "./DashboardLayout";
+import AdminProfile from "../Pages/DashBoard/AdminDashboard/AdminProfile/AdminProfile";
+import AddCamp from "../Pages/DashBoard/AdminDashboard/AddCamp/AddCamp";
+import ManageCamps from "../Pages/DashBoard/AdminDashboard/ManageCamps/ManageCamps";
+import ManageRegCamps from "../Pages/DashBoard/AdminDashboard/ManageRegCamps/ManageRegCamps";
+import Analytics from "../Pages/DashBoard/UserDashBoard/Analytics/Analytics";
+import PaymentHistory from "../Pages/DashBoard/UserDashBoard/PaymentHistory/PaymentHistory";
+import RegCamps from "../Pages/DashBoard/UserDashBoard/RegCamps/RegCamps";
+import UserProfile from "../Pages/DashBoard/UserDashBoard/UserProfile/UserProfile";
 
   const router = createBrowserRouter([
     {
@@ -38,36 +46,36 @@ import DashboardLayout from "./DashboardLayout";
         //admin-dashboard routes
         {
           path: "adminProfile",
-          element: <h2>Hellow World</h2>
+          element: <AdminProfile></AdminProfile>
         },
         {
           path: "addCamp",
-          element: <h2>Hellow World</h2>
+          element: <AddCamp></AddCamp>
         },
         {
-          path: "manageCamp",
-          element: <h2>Hellow World</h2>
+          path: "manageCamps",
+          element: <ManageCamps></ManageCamps>
         },
         {
           path: "manageRegCamps",
-          element: <h2>Hellow World</h2>
+          element: <ManageRegCamps></ManageRegCamps>
         },
         //user dashboard routes
         {
           path: "userProfile",
-          element: <h2>Hellow World</h2>
+          element: <UserProfile/>
         },
         {
           path: "analytics",
-          element: <h2>Hellow World</h2>
+          element: <Analytics/>
         },
         {
           path: "regCamps",
-          element: <h2>Hellow World</h2>
+          element: <RegCamps/>
         },
         {
           path: "paymentHistory",
-          element: <h2>Hellow World</h2>
+          element: <PaymentHistory/>
         },
       ]
     }
