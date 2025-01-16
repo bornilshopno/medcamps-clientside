@@ -15,6 +15,10 @@ import Analytics from "../Pages/DashBoard/UserDashBoard/Analytics/Analytics";
 import PaymentHistory from "../Pages/DashBoard/UserDashBoard/PaymentHistory/PaymentHistory";
 import RegCamps from "../Pages/DashBoard/UserDashBoard/RegCamps/RegCamps";
 import UserProfile from "../Pages/DashBoard/UserDashBoard/UserProfile/UserProfile";
+import UpdateProfile from "../Components/UpdateProfile";
+
+
+
 
   const router = createBrowserRouter([
     {
@@ -46,7 +50,7 @@ import UserProfile from "../Pages/DashBoard/UserDashBoard/UserProfile/UserProfil
         //admin-dashboard routes
         {
           path: "adminProfile",
-          element: <AdminProfile></AdminProfile>
+          element:   <AdminProfile></AdminProfile> 
         },
         {
           path: "addCamp",
@@ -76,6 +80,10 @@ import UserProfile from "../Pages/DashBoard/UserDashBoard/UserProfile/UserProfil
         {
           path: "paymentHistory",
           element: <PaymentHistory/>
+        },
+        {
+          path: "updateProfile",
+          element: <UpdateProfile/>
         },
       ]
     }

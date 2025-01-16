@@ -1,9 +1,10 @@
+import DashboardTitle from "../../../../Components/DashboardTitle";
 
 
 const Analytics = () => {
     return (
         <div>
-            Analytics
+         <DashboardTitle title={"Analytics"}></DashboardTitle>
         </div>
     );
 };

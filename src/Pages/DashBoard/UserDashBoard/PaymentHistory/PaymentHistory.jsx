@@ -1,9 +1,11 @@
+import DashboardTitle from "../../../../Components/DashboardTitle";
 
 
 const PaymentHistory = () => {
     return (
         <div>
-            PaymentHistory
+             <DashboardTitle title={"PaymentHistory"}></DashboardTitle>
+            
         </div>
     );
 };

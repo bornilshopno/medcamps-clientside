@@ -1,9 +1,10 @@
+import DashboardTitle from "../../../../Components/DashboardTitle";
 
 
 const RegCamps = () => {
     return (
         <div>
-            RegCamps
+            <DashboardTitle title={"Registered Camps"}></DashboardTitle>
         </div>
     );
 };
