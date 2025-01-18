@@ -16,6 +16,7 @@ import PaymentHistory from "../Pages/DashBoard/UserDashBoard/PaymentHistory/Paym
 import RegCamps from "../Pages/DashBoard/UserDashBoard/RegCamps/RegCamps";
 import UserProfile from "../Pages/DashBoard/UserDashBoard/UserProfile/UserProfile";
 import UpdateProfile from "../Components/UpdateProfile";
+import AdminRoute from "./AdminRoute";
 
 
 
@@ -45,7 +46,7 @@ import UpdateProfile from "../Components/UpdateProfile";
     //dashboard routes
     {
       path:"/dashboard",
-      element:<DashboardLayout></DashboardLayout>,
+      element:<AdminRoute><DashboardLayout></DashboardLayout></AdminRoute>,
       children:[
         //admin-dashboard routes
         {
