@@ -6,6 +6,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ManageCamps = () => {
  const [allCamps,refetch]=useCamps()
@@ -22,9 +23,16 @@ const handleDelete=async(camp)=>{
         confirmButtonText: "Yes, delete it!"
       }).then(async(result) => {
         if (result.isConfirmed) {
-            const res= await axiosSecurely.delete(`/camps/camp/${camp.id}`);
-            if(res.data){
-                console.log(res.data);
+            const res= await axiosSecurely.delete(`/camps/delete-camp/${camp._id}`);
+            if(res.data.deletedCount){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${camp.campName} is removed successfully!`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                refetch()
     
             }
         }
@@ -34,9 +42,7 @@ const handleDelete=async(camp)=>{
     refetch();
 
 }
-const handleUpdate=(camp)=>{
-    console.log(camp)
-}
+
 
 
     return (
@@ -71,7 +77,7 @@ total camps : {allCamps?.length}
       <td>{camp?.healthCareProf.map((prof, idx)=><h1 key={idx}>{prof}</h1>)}</td>
       <td className="flex gap-2">
         <button onClick={()=>handleDelete(camp)} className="btn btn-sm" data-tooltip-id="my-tooltip" data-tooltip-content="Delete Camp?"><FaDeleteLeft className="text-2xl text-red-600"/> </button>
-        <button onClick={()=>handleUpdate(camp)} className="btn btn-sm" data-tooltip-id="my-tooltip" data-tooltip-content="Update Camp?"><BsTicketDetailedFill className="text-2xl text-primary"/> </button>
+        <Link to={`/dashboard/updateCamp/${camp._id}`} className="btn btn-sm" data-tooltip-id="my-tooltip" data-tooltip-content="Update Camp?"><BsTicketDetailedFill className="text-2xl text-primary"/> </Link >
         
         </td>
     </tr>

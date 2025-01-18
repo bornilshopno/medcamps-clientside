@@ -17,6 +17,7 @@ import RegCamps from "../Pages/DashBoard/UserDashBoard/RegCamps/RegCamps";
 import UserProfile from "../Pages/DashBoard/UserDashBoard/UserProfile/UserProfile";
 import UpdateProfile from "../Components/UpdateProfile";
 import AdminRoute from "./AdminRoute";
+import UpdateCamp from "../Pages/DashBoard/AdminDashboard/ManageCamps/UpdateCamp";
 
 
 
@@ -64,6 +65,10 @@ import AdminRoute from "./AdminRoute";
         {
           path: "manageRegCamps",
           element: <ManageRegCamps></ManageRegCamps>
+        },
+        {
+          path: "/dashboard/updateCamp/:id",
+          element: <UpdateCamp/>
         },
         //user dashboard routes
         {
