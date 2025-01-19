@@ -18,6 +18,9 @@ import UserProfile from "../Pages/DashBoard/UserDashBoard/UserProfile/UserProfil
 import UpdateProfile from "../Components/UpdateProfile";
 import AdminRoute from "./AdminRoute";
 import UpdateCamp from "../Pages/DashBoard/AdminDashboard/ManageCamps/UpdateCamp";
+import CampDetails from "../Components/CampDetails";
+import PrivateRoute from "./PrivateRoute";
+
 
 
 
@@ -40,14 +43,19 @@ import UpdateCamp from "../Pages/DashBoard/AdminDashboard/ManageCamps/UpdateCamp
         {
           path:"/join-us",
           element:<JoinUs></JoinUs>
-        }
+        },
+        {
+          path:"/camp-detail/:id",
+          element: <CampDetails/>,
+          loader: ({params})=>fetch(`http://localhost:3000/camps/camp-detail/${params.id}`)
+        },
       ]
     },
 
     //dashboard routes
     {
       path:"/dashboard",
-      element:<AdminRoute><DashboardLayout></DashboardLayout></AdminRoute>,
+      element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
       children:[
         //admin-dashboard routes
         {
@@ -91,6 +99,7 @@ import UpdateCamp from "../Pages/DashBoard/AdminDashboard/ManageCamps/UpdateCamp
           path: "updateProfile",
           element: <UpdateProfile/>
         },
+        
       ]
     }
   ]);
