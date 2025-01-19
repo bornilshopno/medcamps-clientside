@@ -32,7 +32,7 @@ const CampCard = ({camp}) => {
     <p className="flex gap-1 items-center text-secondary"><FcAlarmClock />: {timeStart}-to-{timeEnd}</p>
     <p className="flex gap-1 items-center text-secondary">Camp Fee :${campFee}</p>
     <p className="flex gap-1 items-center bg-secondary absolute top-2 right-2 badge rounded-md border-none"> <FaPeoplePulling />{participants}</p>
-   <div><h2 className="flex gap-1 items-center text-secondary"><FaUserDoctor />Consultants: </h2>
+   <div className="h-16"><h2 className="flex gap-1 items-center text-secondary"><FaUserDoctor />Consultants: </h2>
    { healthCareProf.map((prof,index)=>
         <h1 key={index} className="flex gap-1 items-center text-secondary"> {prof}</h1>
     )}

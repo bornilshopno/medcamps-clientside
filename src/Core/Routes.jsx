@@ -47,7 +47,7 @@ import PrivateRoute from "./PrivateRoute";
         {
           path:"/camp-detail/:id",
           element: <CampDetails/>,
-          loader: ({params})=>fetch(`http://localhost:3000/camps/camp-detail/${params.id}`)
+          // loader: ({params})=>fetch(`http://localhost:3000/camps/camp-detail/${params.id}`)
         },
       ]
     },
