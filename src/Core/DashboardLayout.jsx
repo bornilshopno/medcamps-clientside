@@ -16,8 +16,8 @@ const DashboardLayout = () => {
     const { logout,user } = useAuth();
     const navigate=useNavigate()
     const location=useLocation()
-    console.log(location)
-console.log(user)
+//     console.log(location)
+// console.log(user)
 // const userName= user?.displayName.split(" ")
 // const userLastName=userName[userName.length-1]
 // console.log(userName, userLastName)

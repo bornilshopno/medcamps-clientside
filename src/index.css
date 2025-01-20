@@ -8,3 +8,12 @@
 .saira{
     font-family: "Saira", serif;
 }
+
+.active {
+    background-color: white !important;
+    color: #0e864c !important;
+}
+
+/* html{
+    overflow-y: scroll;
+} */

@@ -39,21 +39,7 @@ const Login = () => {
     }
 
 
-    // const handleLogin = e => {
-    //     e.preventDefault();
-    //     const form = e.target;
-    //     const email = form.email.value;
-    //     const password = form.password.value;
-    //     // console.log(email, password);
-    //     userLogin(email, password)
-    //         .then(res => {
-    //             const user = res.user;
-    //             console.log(user)
-    //             setLoading(false)
-    //             navigate(locs, { replace: true })
-
-    //         })
-    // }
+  
 
     const handleValidateCaptcha = () => {
         const value = captchaRef.current.value;

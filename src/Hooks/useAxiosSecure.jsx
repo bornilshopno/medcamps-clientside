@@ -1,11 +1,15 @@
 import axios from "axios";
 import { useEffect } from "react";
+import useAuth from "./useAuth";
+import { useNavigate } from "react-router-dom";
 
 export const axiosSecurely = axios.create({
     baseURL: "http://localhost:3000"
 })
 
 const useAxiosSecure = () => {
+    const{logOut}=useAuth();
+    const navigate=useNavigate()
     //request cases=>
     axiosSecurely.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token')//getting token from local storage
@@ -24,11 +28,16 @@ useEffect(()=>{
     axiosSecurely.interceptors.response.use(function(response){
         return response
     }, 
-    function(error){
+    async(error)=>{
+        const status= error.response.status;
+        if (status===401 || status===403){
+            await logOut();
+            navigate("/join-us")
+        }
         return Promise.reject(error);
     }
     )
-},[])
+},[logOut, navigate])
 
 return axiosSecurely
 };

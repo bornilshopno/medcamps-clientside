@@ -34,13 +34,14 @@ const AuthProvider = ({ children }) => {
                 //for HTTP only== cookies need to remove from server side
                 localStorage.removeItem('access-token')
             }
+            setLoading(false);
 
         })
         return (() => unSubscribe())
     }, [auth,axiosPublicly])
 
 
-
+console.log('authprovider',user)
 
     const createUser = (email, password) => {
         setLoading(true);

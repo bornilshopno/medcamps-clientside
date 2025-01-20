@@ -21,10 +21,10 @@ const PopularSection = () => {
     return (
         <div>
             <SectionTitles heading={"Most Popular Camps"} subHeading={"---participants grabed this camps---"}></SectionTitles>
-            <div className="w-11/12 mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="w-11/12 mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-4 py-5">
                 {popularCamps?.map(camp => <CampCard key={camp._id} camp={camp}></CampCard>)}
             </div>
-            <Link to={'/camps'} className="btn btn-accent">See All Camps</Link>
+            <div className="w-40 pb-5 mx-auto"><Link to={'/camps'} className="btn btn-accent  bg-primary">See All Camps</Link></div>
         </div>
     );
 };
