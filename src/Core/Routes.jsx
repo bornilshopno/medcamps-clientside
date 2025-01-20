@@ -20,6 +20,7 @@ import AdminRoute from "./AdminRoute";
 import UpdateCamp from "../Pages/DashBoard/AdminDashboard/ManageCamps/UpdateCamp";
 import CampDetails from "../Components/CampDetails";
 import PrivateRoute from "./PrivateRoute";
+import Payment from "../Pages/DashBoard/UserDashBoard/Payment/Payment";
 
 
 
@@ -47,7 +48,6 @@ import PrivateRoute from "./PrivateRoute";
         {
           path:"/camp-detail/:id",
           element: <CampDetails/>,
-          // loader: ({params})=>fetch(`http://localhost:3000/camps/camp-detail/${params.id}`)
         },
       ]
     },
@@ -60,23 +60,23 @@ import PrivateRoute from "./PrivateRoute";
         //admin-dashboard routes
         {
           path: "adminProfile",
-          element:   <AdminProfile></AdminProfile> 
+          element:   <AdminRoute><AdminProfile></AdminProfile> </AdminRoute>
         },
         {
           path: "addCamp",
-          element: <AddCamp></AddCamp>
+          element: <AdminRoute><AddCamp></AddCamp></AdminRoute>
         },
         {
           path: "manageCamps",
-          element: <ManageCamps></ManageCamps>
+          element: <AdminRoute><ManageCamps></ManageCamps></AdminRoute>
         },
         {
           path: "manageRegCamps",
-          element: <ManageRegCamps></ManageRegCamps>
+          element: <AdminRoute><ManageRegCamps></ManageRegCamps></AdminRoute>
         },
         {
           path: "/dashboard/updateCamp/:id",
-          element: <UpdateCamp/>
+          element: <AdminRoute><UpdateCamp/></AdminRoute>
         },
         //user dashboard routes
         {
@@ -98,6 +98,10 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: "updateProfile",
           element: <UpdateProfile/>
+        },
+        {
+          path:`payment/:id`,
+          element:<Payment/>
         },
         
       ]
