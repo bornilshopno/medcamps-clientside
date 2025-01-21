@@ -7,7 +7,7 @@ const AdminProfile = () => {
     const { user } = useAuth()
     return (
         <div className="">
-            {/* <h2 className="pb-1 border-b-2 mb-3">My MedCamps Profile</h2> */}
+            
 <DashboardTitle title={"My MedCamps Profile"}></DashboardTitle>
             <div className="flex flex-col md:flex-row gap-10 ">
                 <div className="w-52">

@@ -21,6 +21,7 @@ import UpdateCamp from "../Pages/DashBoard/AdminDashboard/ManageCamps/UpdateCamp
 import CampDetails from "../Components/CampDetails";
 import PrivateRoute from "./PrivateRoute";
 import Payment from "../Pages/DashBoard/UserDashBoard/Payment/Payment";
+import PartcipantApproval from "../Pages/DashBoard/AdminDashboard/ParticipantApproval/PartcipantApproval";
 
 
 
@@ -78,6 +79,8 @@ import Payment from "../Pages/DashBoard/UserDashBoard/Payment/Payment";
           path: "/dashboard/updateCamp/:id",
           element: <AdminRoute><UpdateCamp/></AdminRoute>
         },
+       
+        //
         //user dashboard routes
         {
           path: "userProfile",

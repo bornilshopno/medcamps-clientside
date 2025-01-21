@@ -2,8 +2,9 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 
 const CheckOutForm = () => {
@@ -14,11 +15,12 @@ const CheckOutForm = () => {
     const [clientSecret, setClientSecret] = useState("")
     const [transactionID, setTransactionID] = useState("")
     const axiosSecurely = useAxiosSecure()
+    const navigate=useNavigate()
 
     const { id: campId } = useParams()
 
  
-    const { data: camp = {} } = useQuery({
+    const { data: camp = {}, refetch } = useQuery({
         queryKey: ["queryById", campId],
         queryFn: async () => {
             const result = await axiosSecurely.get(`participants/payment/${campId}`)
@@ -73,14 +75,14 @@ const CheckOutForm = () => {
             console.log('cardConfirmError')
         }
         else {
-            console.log(paymentIntent);
+            console.log('payment intent-check status', paymentIntent);
             if (paymentIntent.status === 'succeeded') {
                               setTransactionID(paymentIntent.id)
 
 
             //now save the payment in the database
 
-            const payment={
+            const paymentInfo={
                 email:user?.email,
                 name:user?.displayName,
                 fee:camp?.campFee,
@@ -89,10 +91,23 @@ const CheckOutForm = () => {
                 campPaid: camp?.campName,
                 campID: camp?.campID,
                 perticipantID: camp?._id,
+                status:"pending",
             }
-            console.log(payment)
+            console.log(paymentInfo)
+
+           const paymentRes= await axiosSecurely.post("/payments", paymentInfo)
+           console.log(paymentRes.data);
             }
         }
+        refetch();
+
+        Swal.fire({
+            title: `${camp?.campFee} : Payment Successfully Done`,
+            icon: "success",
+            timer:2500,
+          });
+
+          navigate("/dashboard/paymentHistory")
 
 
 

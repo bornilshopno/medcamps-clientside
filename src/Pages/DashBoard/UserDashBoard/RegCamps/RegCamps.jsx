@@ -80,18 +80,18 @@ const RegCamps = () => {
                                 <th>{idx + 1}</th>
                                 <td>{user.campName}</td>
                                 <td>{user.campFee}</td>
-                                <td>{(user.payment === "paid") ?
-                                    <GiConfirmed className="text-2xl" /> :
-                                    <Link to={`/dashboard/payment/${user._id}`}>
-                                    <button className="flex gap-1 btn btn-sm bg-amber-300" >Pay <AiFillDollarCircle className="text-2xl" /> </button></Link>}</td>
                                 <td className="">{(user.payment === "paid") ?
-                                    <p className="flex gap-1 justify-center bg-secondary py-1 rounded-md">Confirmed <GiConfirmed className="text-2xl" /></p> : <p className="flex gap-1 justify-center bg-amber-300 py-1 rounded-md">Pending<MdPending /></p>} </td>
+                                    <p className="flex gap-1 items-center justify-center"><GiConfirmed className="text-2xl text-secondary" />Paid</p> :
+                                    <Link to={`/dashboard/payment/${user._id}`}>
+                                    <button className="flex gap-1 btn btn-sm bg-amber-300 mx-auto" >Pay <AiFillDollarCircle className="text-2xl" /> </button></Link>}</td>
+                                <td className="">{(user.paymentStatus === "approved") ?
+                                    <p className="flex gap-1 justify-center items-center py-1 rounded-md"><GiConfirmed className="text-2xl text-secondary" />Confirmed </p> : <p className="flex gap-1 justify-center bg-amber-300 py-1 rounded-md">Pending<MdPending /></p>} </td>
                                 <td>
-                                    <button className="btn btn-sm bg-red-300 px-2" onClick={() => handleCancelParticipation(user)}><MdOutlineCancelPresentation className="text-2xl" /> </button></td>
+                                    <button disabled={user.transactionID} className="btn btn-sm bg-amber-300 text-red-600 p-0 h-6" onClick={() => handleCancelParticipation(user)}><MdOutlineCancelPresentation className="text-3xl" /> </button></td>
                                 
 
                                 <td>
-                                    <button className="flex gap-1 btn btn-sm bg-primary" >Feedback<MdFeedback className="text-2xl" /> </button></td>
+                                    <button disabled={!user.paymentStatus} className="flex gap-1 btn btn-sm bg-amber-200" >Feedback<MdFeedback className="text-2xl" /> </button></td>
 
                             </tr>
 
