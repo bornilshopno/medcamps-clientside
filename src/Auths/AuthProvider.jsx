@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
     }, [auth,axiosPublicly])
 
 
-console.log('authprovider',user)
+// console.log('authprovider',user)
 
     const createUser = (email, password) => {
         setLoading(true);

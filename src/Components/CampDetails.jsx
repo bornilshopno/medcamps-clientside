@@ -103,7 +103,7 @@ const CampDetails = () => {
     const onSubmit = (data) => {
         console.log(data);
         closeModal();
-        const registration = { campName, campFee, location, healthCareProf, participantName: user.displayName, participantEmail: user.email, ...data }
+        const registration = {campID:_id, campName, campFee, location, healthCareProf, participantName: user.displayName, participantEmail: user.email, ...data }
         console.log(registration)
         axiosSecurely.post("/participants", registration)
             .then(res => {

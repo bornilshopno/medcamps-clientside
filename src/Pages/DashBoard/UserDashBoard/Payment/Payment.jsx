@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import SectionTitles from "../../../../Components/SectionTitles";
-import useAuth from "../../../../Hooks/useAuth";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { useParams } from "react-router-dom";
 import CheckOutForm from "./CheckOutForm";
@@ -9,10 +8,9 @@ import {loadStripe} from '@stripe/stripe-js';
 
 const Payment = () => {
     const { id: campId } = useParams()
-    console.log(campId)
-    const { user } = useAuth();
+    // console.log(campId)
     const axiosSecurely = useAxiosSecure()
-    const { data: camp = [] } = useQuery({
+    const { data: camp = {} } = useQuery({
         queryKey: ["queryById", campId],
         queryFn: async () => {
             const result = await axiosSecurely.get(`participants/payment/${campId}`)
@@ -20,7 +18,7 @@ const Payment = () => {
 
         }
     })
-    console.log(camp)
+
 
     //TO DO
     const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
