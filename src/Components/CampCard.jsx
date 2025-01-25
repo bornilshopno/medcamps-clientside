@@ -38,7 +38,7 @@ const CampCard = ({camp}) => {
     )}
    </div>
     <div className="card-actions justify-end">
-      <Link to={`/camp-detail/${_id}`}><button className="btn btn-primary">More Details</button></Link>
+      <Link to={`/camp-detail/${_id}`}><button className="btn border-none btn-sm bg-primary">...More Details</button></Link>
     </div>
   </div>
 </div>

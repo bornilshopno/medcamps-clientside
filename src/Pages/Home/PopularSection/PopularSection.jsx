@@ -24,7 +24,7 @@ const PopularSection = () => {
             <div className="w-11/12 mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-4 py-5">
                 {popularCamps?.map(camp => <CampCard key={camp._id} camp={camp}></CampCard>)}
             </div>
-            <div className="w-40 pb-5 mx-auto"><Link to={'/camps'} className="btn btn-accent  bg-primary">See All Camps</Link></div>
+            <div className="w-40 pb-5 ml-auto"><Link to={'/camps'} className="btn btn-sm bg-secondary">See All Camps</Link></div>
         </div>
     );
 };

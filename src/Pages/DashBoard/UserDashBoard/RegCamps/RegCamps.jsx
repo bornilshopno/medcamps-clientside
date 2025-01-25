@@ -7,11 +7,13 @@ import { MdFeedback, MdOutlineCancelPresentation, MdPending } from "react-icons/
 import Swal from "sweetalert2";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
 const RegCamps = () => {
     const axiosSecurely = useAxiosSecure()
     const { user } = useAuth()
+    const [feedbackIndex,SetFeedbackIndex]=useState(50)
 
     const { data: registeredCamps = [], isPending: loading, refetch } = useQuery({
         queryKey: [user?.email, "userCamps"],
@@ -39,14 +41,31 @@ const RegCamps = () => {
                     .then(res => {
                         console.log(res.data);
                         if (res.data.deletedCount > 0) {
-                            Swal.fire({
-                                position: "top-end",
-                                icon: "success",
-                                title: "Join request cancelled!",
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                            refetch();
+                            axiosSecurely.get(`/camps/camp-detail/${participant.campID}`)
+                            .then(res=>{
+                                console.log(res.data)
+                                const currentParticipants = res.data.participants - 1;
+                            console.log(currentParticipants)
+                            const cpc = { participants: currentParticipants };
+                            console.log(cpc)
+                            axiosSecurely.patch(`/camps/pCount/${res.data._id}`, cpc)
+                                .then(res => {
+                                    console.log(res.data)
+                                    Swal.fire({
+                                        position: "top-end",
+                                        icon: "success",
+                                        title: "Join request cancelled!",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    refetch();
+                                })
+
+                            })
+
+                            //
+
+                            
                         }
                     })
             }
@@ -60,7 +79,7 @@ const RegCamps = () => {
     return (
         <div>
             <DashboardTitle title={"Registered Camps"}></DashboardTitle>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto relative z-40">
                 <table className="table table-zebra">
                     {/* head */}
                     <thead>
@@ -83,12 +102,12 @@ const RegCamps = () => {
                                 <td className="">{(user.payment === "paid") ?
                                     <p className="flex gap-1 items-center justify-center"><GiConfirmed className="text-2xl text-secondary" />Paid</p> :
                                     <Link to={`/dashboard/payment/${user._id}`}>
-                                    <button className="flex gap-1 btn btn-sm bg-amber-300 mx-auto" >Pay <AiFillDollarCircle className="text-2xl" /> </button></Link>}</td>
+                                        <button className="flex gap-1 btn btn-sm bg-amber-300 mx-auto" >Pay <AiFillDollarCircle className="text-2xl" /> </button></Link>}</td>
                                 <td className="">{(user.paymentStatus === "approved") ?
                                     <p className="flex gap-1 justify-center items-center py-1 rounded-md"><GiConfirmed className="text-2xl text-secondary" />Confirmed </p> : <p className="flex gap-1 justify-center bg-amber-300 py-1 rounded-md">Pending<MdPending /></p>} </td>
                                 <td>
                                     <button disabled={user.transactionID} className="btn btn-sm bg-amber-300 text-red-600 p-0 h-6" onClick={() => handleCancelParticipation(user)}><MdOutlineCancelPresentation className="text-3xl" /> </button></td>
-                                
+
 
                                 <td>
                                     <button disabled={!user.paymentStatus} className="flex gap-1 btn btn-sm bg-amber-200" >Feedback<MdFeedback className="text-2xl" /> </button></td>
@@ -102,6 +121,9 @@ const RegCamps = () => {
 
                     </tbody>
                 </table>
+                <div className={`feedback z-${feedbackIndex} absolute top-0 right-0` }>
+                    <h3>Feeback on </h3>
+                </div>
             </div>
 
         </div>

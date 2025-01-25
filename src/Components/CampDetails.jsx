@@ -111,6 +111,7 @@ const CampDetails = () => {
 
                     const currentParticipants = participants + 1;
                     const cpc = { participants: currentParticipants };
+                    console.log(cpc)
                     axiosSecurely.patch(`/camps/pCount/${_id}`, cpc)
                         .then(res => {
                             if (res.data.modifiedCount > 0) {

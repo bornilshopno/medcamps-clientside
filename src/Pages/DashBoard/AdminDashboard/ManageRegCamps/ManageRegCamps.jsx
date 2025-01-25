@@ -37,16 +37,34 @@ const ManageRegCamps = () => {
                     .then(res => {
                         console.log(res.data);
                         if (res.data.deletedCount > 0) {
-                            Swal.fire({
-                                position: "top-end",
-                                icon: "success",
-                                title: "Join request cancelled!",
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                            refetch();
-                        }
-                    })
+                            const currentParticipants = participant.participants - 1;
+                            console.log(currentParticipants)
+                    const cpc = { participants: currentParticipants };
+                    axiosSecurely.patch(`/camps/pCount/${participant.campID}`, cpc)
+                        .then(res => {
+                            if (res.data.modifiedCount > 0){
+                                Swal.fire({
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: "Join request cancelled!",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                refetch();
+
+
+
+
+                            }
+
+
+
+
+
+
+                            
+                        })
+                    }})
             }
         });
 
