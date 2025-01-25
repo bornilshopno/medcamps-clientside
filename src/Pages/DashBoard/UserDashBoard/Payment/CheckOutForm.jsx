@@ -102,7 +102,7 @@ const CheckOutForm = () => {
         refetch();
 
         Swal.fire({
-            title: `${camp?.campFee} : Payment Successfully Done`,
+            title: `$${camp?.campFee} : Payment Successfully Done`,
             icon: "success",
             timer:2500,
           });

@@ -14,6 +14,7 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(null);
 
 
+
     //firebase lookup
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {

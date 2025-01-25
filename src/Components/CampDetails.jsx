@@ -174,7 +174,7 @@ const CampDetails = () => {
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 style={modalStyles}
-                contentLabel="Camp Joining Modal"
+                contentLabel="Feedback Modal"
             >
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Submit your details to join the camp</h2>
 
