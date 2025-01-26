@@ -167,50 +167,57 @@ const RegCamps = () => {
     return (
         <div>
             <DashboardTitle title={"Registered Camps"}></DashboardTitle>
+           {
+            (registeredCamps.length>0) ?
             <div className="overflow-x-auto ">
-                <table className="table table-zebra">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Camp Name</th>
-                            <th>Camp Fees</th>
-                            <th>Payment Status</th>
-                            <th>Confirmation Status</th>
-                            <th>Cancel</th>
-                            <th>Feedback</th>
+            <table className="table table-zebra">
+                {/* head */}
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Camp Name</th>
+                        <th>Camp Fees</th>
+                        <th>Payment Status</th>
+                        <th>Confirmation Status</th>
+                        <th>Cancel</th>
+                        <th>Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {registeredCamps?.map((userC, idx) =>
+                        <tr key={userC._id} >
+                            <th>{idx + 1}</th>
+                            <td>{userC.campName}</td>
+                            <td>{userC.campFee}</td>
+                            <td className="">{(userC.payment === "paid") ?
+                                <p className="flex gap-1 items-center justify-center"><GiConfirmed className="text-2xl text-secondary" />Paid</p> :
+                                <Link to={`/dashboard/payment/${userC._id}`}>
+                                    <button className="flex gap-1 btn btn-sm bg-amber-300 mx-auto" >Pay <AiFillDollarCircle className="text-2xl" /> </button></Link>}</td>
+                            <td className="">{(userC.paymentStatus === "approved") ?
+                                <p className="flex gap-1 justify-center items-center py-1 rounded-md"><GiConfirmed className="text-2xl text-secondary" />Confirmed </p> : <p className="flex gap-1 justify-center bg-amber-300 py-1 rounded-md">Pending<MdPending /></p>} </td>
+                            <td>
+                                <button disabled={userC.transactionID} className="btn btn-sm bg-amber-300 text-red-600 p-0 h-6" onClick={() => handleCancelParticipation(userC)}><MdOutlineCancelPresentation className="text-3xl" /> </button></td>
+
+
+                            <td>
+                                <button disabled={!userC.paymentStatus || userC.feedbackStatus} className="flex gap-1 btn btn-sm bg-amber-200" onClick={() => openModal(userC)}>{userC.feedbackStatus ? <><GiConfirmed className="text-2xl text-secondary" />Feedback </>: <>Feedback<MdFeedback className="text-2xl" /></>} </button></td>
+
                         </tr>
-                    </thead>
-                    <tbody>
-                        {registeredCamps?.map((userC, idx) =>
-                            <tr key={userC._id} >
-                                <th>{idx + 1}</th>
-                                <td>{userC.campName}</td>
-                                <td>{userC.campFee}</td>
-                                <td className="">{(userC.payment === "paid") ?
-                                    <p className="flex gap-1 items-center justify-center"><GiConfirmed className="text-2xl text-secondary" />Paid</p> :
-                                    <Link to={`/dashboard/payment/${userC._id}`}>
-                                        <button className="flex gap-1 btn btn-sm bg-amber-300 mx-auto" >Pay <AiFillDollarCircle className="text-2xl" /> </button></Link>}</td>
-                                <td className="">{(userC.paymentStatus === "approved") ?
-                                    <p className="flex gap-1 justify-center items-center py-1 rounded-md"><GiConfirmed className="text-2xl text-secondary" />Confirmed </p> : <p className="flex gap-1 justify-center bg-amber-300 py-1 rounded-md">Pending<MdPending /></p>} </td>
-                                <td>
-                                    <button disabled={userC.transactionID} className="btn btn-sm bg-amber-300 text-red-600 p-0 h-6" onClick={() => handleCancelParticipation(userC)}><MdOutlineCancelPresentation className="text-3xl" /> </button></td>
 
-
-                                <td>
-                                    <button disabled={!userC.paymentStatus || userC.feedbackStatus} className="flex gap-1 btn btn-sm bg-amber-200" onClick={() => openModal(userC)}>{userC.feedbackStatus ? <><GiConfirmed className="text-2xl text-secondary" />Feedback </>: <>Feedback<MdFeedback className="text-2xl" /></>} </button></td>
-
-                            </tr>
-
-                        )}
+                    )}
 
 
 
 
-                    </tbody>
-                </table>
+                </tbody>
+            </table>
 
+        </div>
+        :
+        <div className="no-payment bg-gray-200">
+                <p className="text-center max-w-xl mx-auto px-10 py-10 lg:py-20 text-3xl text-primary font-bold">Not registered for any camp yet! Please Review all <Link className="text-blue-600" to={"/camps"}>Available Camps</Link> and participate which suits your purpose.</p>
             </div>
+           }
 
             <Modal
                 isOpen={modalIsOpen}
