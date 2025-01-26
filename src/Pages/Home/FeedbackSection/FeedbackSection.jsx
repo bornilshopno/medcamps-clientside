@@ -11,6 +11,7 @@ import { format } from "date-fns";
 import 'swiper/css/autoplay'
 import { Rating, ThinStar } from "@smastrom/react-rating";
 
+
 const myStyles = {
     itemShapes: ThinStar,
     activeFillColor: '#40b176',
@@ -31,8 +32,9 @@ const FeedbackSection = () => {
         <div>
             <SectionTitles heading={"Feedback & Ratings"} subHeading={"--feedback matters to have an overview--"}>
             </SectionTitles>
-            Feedback
-            <Swiper navigation={true} autoplay={{
+          
+          <div className="py-10 ">
+          <Swiper navigation={true} autoplay={{
                 delay: 1500,
                 disableOnInteraction: false,
             }}
@@ -44,7 +46,7 @@ const FeedbackSection = () => {
                     feedbacks?.map(feedback =>
                         <SwiperSlide key={feedback._id}>
                             <div className="w-11/12 mx-auto flex flex-col justify-center mb-10">
-                                <FaQuoteLeft className="mx-auto" />
+                                <FaQuoteLeft className="mx-auto mb-10 text-gray-300" />
                                 <Rating
                                     className="mx-auto"
                                     style={{ maxWidth: 180 }}
@@ -52,8 +54,8 @@ const FeedbackSection = () => {
                                     itemStyles={myStyles}
                                     readOnly
                                 />
-                                <h2 className="text-center text-2xl font-semibold">{feedback?.feedback}</h2>
-                                <FaQuoteRight className="mx-auto" />
+                                <h2 className="text-center text-2xl font-semibold pb-10">{feedback?.feedback}</h2>
+                                <FaQuoteRight className="mx-auto text-gray-300" />
                                 <div className="flex gap-2 text-sm italic justify-center">
                                     <h2 className="">{feedback?.participantName} 's feedback on {feedback?.campName}</h2>
                                     <p className="text-gray-500 text-sm">Dated: {feedback.date && format(new Date(feedback.date), 'P')}</p>
@@ -66,6 +68,7 @@ const FeedbackSection = () => {
                 }
 
             </Swiper>
+          </div>
         </div>
     );
 };
