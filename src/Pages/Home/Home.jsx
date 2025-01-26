@@ -1,3 +1,4 @@
+import FeedbackSection from "./FeedbackSection/FeedbackSection";
 import PopularSection from "./Popularsection/PopularSection";
 
 
@@ -7,6 +8,7 @@ const Home = () => {
             Home
 
             <PopularSection/>
+            <FeedbackSection/>
         </div>
     );
 };

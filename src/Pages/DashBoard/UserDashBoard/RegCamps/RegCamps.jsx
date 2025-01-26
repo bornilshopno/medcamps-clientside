@@ -132,7 +132,7 @@ const RegCamps = () => {
             participantName: user?.displayName,
             campID: campUser?.campID,
             participantID: campUser?._id,
-            date: new Date().toISOString(),
+            date: Date(),
 
         }
         console.log("feedback", campUser, feedbackInfo)
