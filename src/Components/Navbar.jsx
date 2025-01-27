@@ -50,7 +50,7 @@ const{user,logout,registered, setRegistered}=useAuth()
   <div tabIndex={0} role="button" className="border-2 border-secondary rounded-xl bg-white p-[2px]">
     <img src={user?.photoURL} alt="" className="h-10 w-10 object-cover rounded-lg"/>
   </div>
-  <ul tabIndex={0} className="dropdown-content menu bg-primary rounded-box z-[1] w-52 p-2 shadow">
+  <ul tabIndex={0} className="dropdown-content menu bg-primary rounded-box z-20 w-52 p-2 shadow">
     <li><p>{user.email}</p></li>
     <li><Link to={"/dashboard"}>Dashboard</Link></li>
     <li><button onClick={()=>{logout(); setRegistered(false)}}>Logout</button></li>
