@@ -13,10 +13,8 @@ const JoinUs = () => {
 
     return (
         <>
-        <Helmet>
-       
-                <title>MedCamps || JoinUs</title>
-            
+        <Helmet>       
+                <title>MedCamps || JoinUs</title>            
         </Helmet>
         <div className="flex gap-2">
         <div className="lg:flex-1">

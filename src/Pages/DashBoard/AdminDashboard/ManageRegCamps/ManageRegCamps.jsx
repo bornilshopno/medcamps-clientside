@@ -94,14 +94,11 @@ const ManageRegCamps = () => {
             <DashboardTitle title={"Manage Registered Camps"} />
             <div className="overflow-x-auto">
                 {/* Search Input */}
-                <div className="flex justify-center my-3">
-                    <input
-                        onChange={(e) => setSearch(e.target.value)}
-                        type="text"
-                        placeholder="Participant/Camp/Fee"
-                        className="input input-bordered w-full max-w-xs"
-                    />
-                </div>
+                <div className="flex join justify-center lg:mx-auto rounded-xl focus-within:ring w-[255px] border-2 border-gray-300 my-3">
+                            <input onChange={e => setSearch(e.target.value)} type="text" name="searchbox" placeholder="Joiner/CampName/Fee" className="focus:outline-none bg-white text-gray-600 text-center rounded-l-xl" />
+                            <button className="btn btn-sm  rounded-l-none bg-gray-300 dark:bg-[#6A609F]  border-none" onClick={(e) => setSearch(e.target.searchbox.value)}> Search</button>
+
+                        </div>
                 {search && <p className="text-center">Searched by: <span className="font-semibold text-primary">{search}</span></p>}
 
                 {/* Table */}

@@ -10,6 +10,7 @@ import useAuth from "../Hooks/useAuth";
 import logo from "../assets/logo-medCamp.png"
 import AdminProfile from "../Pages/DashBoard/AdminDashboard/AdminProfile/AdminProfile";
 import UserProfile from "../Pages/DashBoard/UserDashBoard/UserProfile/UserProfile";
+import { Helmet } from "react-helmet-async";
 
 const DashboardLayout = () => {
     const [isAdmin] = useAdmin();
@@ -19,6 +20,9 @@ const DashboardLayout = () => {
  
     return (
         <div>
+             <Helmet>
+                <title>MedCamps || DashBoard</title>
+            </Helmet>
             <div className="flex bg-primary ">
                 <div className="w-56 py-2 px-6">
                     <img src={logo} alt="logo" className="h-10 rounded-sm" />

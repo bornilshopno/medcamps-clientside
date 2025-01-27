@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import CampCard from "../../Components/CampCard";
 import SectionTitles from "../../Components/SectionTitles";
-import useCamps from "../../Hooks/useCamps";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { TbColumns2, TbColumns3 } from "react-icons/tb";
 import { BsColumns } from "react-icons/bs";
+import { Helmet } from "react-helmet-async";
 
 
 const Camps = () => {
-    // const [allCamps] = useCamps();
+    
     const axiosPublicly = useAxiosPublic();
     const [showCamps, setShowCamps] = useState([])
     const [sortBy, setsortBy] = useState("")
     const [search, setSearch] = useState("");
     const [columns, setColumns] = useState(3)
 
-    
+
 
     useEffect(() => {
 
@@ -30,7 +30,9 @@ const Camps = () => {
     return (
         <div>
             <SectionTitles heading={"All Camps by MedCamps"} subHeading={"explore to know about all our camps"}></SectionTitles>
-            {/* <div className="w-11/12 mx-auto border-2 border-amber-800"> */}
+            <Helmet>
+                <title>MedCamps || AllCamps</title>
+            </Helmet>
             <div className="flex justify-center items-center gap-5 Lg:gap-10 flex-col-reverse md:flex-row items center py-5 w-10/12 mx-auto">
                 <div className="flex join justify-between  overflow-hidden rounded-xl focus-within:ring w-[255px] border-2 border-primary">
                     <input onChange={e => setSearch(e.target.value)} type="text" name="searchbox" placeholder="type to search" className="focus:outline-none bg-white text-gray-600 text-center" />

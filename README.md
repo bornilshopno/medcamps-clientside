@@ -67,4 +67,4 @@ This website will serve as a Medical Camp Management System (MCMS) for both the 
 
 ### Live Page Link:
 
-**https://discount-coupons.netlify.app/**
+**https://med-camps.netlify.app/**
