@@ -11,8 +11,7 @@ const useAdmin = () => {
         enabled:!!user?.email,
         queryFn: async()=>{
             const result =await axiosSecurely.get(`/users/admin/${user.email}`);
-            // console.log("isAdmin", result)
-            return result.data?.admin;
+              return result.data?.admin;
         }
     })
     return [isAdmin, isAdminLoading]

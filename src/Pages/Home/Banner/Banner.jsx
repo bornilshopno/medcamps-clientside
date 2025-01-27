@@ -11,7 +11,7 @@ import 'swiper/css';
 import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay'
-import './styles.css';
+
 
 // import required modules
 import {Autoplay, EffectCube, Pagination } from 'swiper/modules';
@@ -31,7 +31,7 @@ const Banner = () => {
             }}
             pagination={true}
             autoplay={{
-                delay: 3000,
+                delay: 5000,
                 disableOnInteraction: false,
             }}
             modules={[Autoplay,EffectCube, Pagination]}

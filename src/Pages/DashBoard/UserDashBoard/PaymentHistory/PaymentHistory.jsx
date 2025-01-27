@@ -8,18 +8,17 @@ import { Link } from "react-router-dom";
 const PaymentHistory = () => {
     const axiosSecurely = useAxiosSecure();
     const { user } = useAuth()
-    console.log(user)
+    
     const { data: history, isPending: loading } = useQuery(
         {
             queryKey: ["history"],
             queryFn: async () => {
                 const res = await axiosSecurely.get(`/payments/payment/${user?.email}`)
-                console.log(res.data)
                 return res.data
             }
         }
     )
-    console.log(history)
+    
     return (
         <div>
             <DashboardTitle title={"Payment History"}></DashboardTitle>

@@ -8,7 +8,6 @@ import {loadStripe} from '@stripe/stripe-js';
 
 const Payment = () => {
     const { id: campId } = useParams()
-    // console.log(campId)
     const axiosSecurely = useAxiosSecure()
     const { data: camp = {} } = useQuery({
         queryKey: ["queryById", campId],

@@ -52,11 +52,11 @@ const CheckOutForm = () => {
             card
         })
         if (error) {
-            console.log("paymentError", error);
+            // console.log("paymentError", error);
             setError(error.message)
         }
         else {
-            console.log("paymentMethod", paymentMethod);
+            // console.log("paymentMethod", paymentMethod);
             setError("")
         }
 
@@ -75,7 +75,7 @@ const CheckOutForm = () => {
             console.log('cardConfirmError')
         }
         else {
-            console.log('payment intent-check status', paymentIntent);
+            // console.log('payment intent-check status', paymentIntent);
             if (paymentIntent.status === 'succeeded') {
                               setTransactionID(paymentIntent.id)
 
@@ -93,10 +93,10 @@ const CheckOutForm = () => {
                 perticipantID: camp?._id,
                 status:"pending",
             }
-            console.log(paymentInfo)
+            // console.log(paymentInfo)
 
            const paymentRes= await axiosSecurely.post("/payments", paymentInfo)
-           console.log(paymentRes.data);
+        //    console.log(paymentRes.data);
             }
         }
         refetch();

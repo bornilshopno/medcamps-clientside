@@ -14,9 +14,8 @@ const UpdateCamp = () => {
     const axiosSecurely = useAxiosSecure()
     const [isDisabled, setIsDisabled] = useState(false)
     const campToUpdate = allCamps?.find(camp => camp._id === campID.id)
-    console.log(campID, campToUpdate)
     const { _id, campName, campImage, campFee, dateStart, dateEnd, timeStart, timeEnd, location, description, healthCareProf: healthcareProfessionals, participants } = campToUpdate;
-    console.log(healthcareProfessionals)
+ 
 
 
 
@@ -55,10 +54,8 @@ const UpdateCamp = () => {
     const onSubmit = (data) => {
 
         const campUpdatedData = { ...data, healthCareProf }
-        console.log(campUpdatedData);
         axiosSecurely.put(`/camps/update-camp/${_id}`, campUpdatedData)
             .then(res => {
-                console.log(res.data)
                 if (res.data.modifiedCount) {
                     Swal.fire({
                         title: `${campName} updated successfully!`,

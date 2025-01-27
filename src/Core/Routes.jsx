@@ -21,7 +21,7 @@ import UpdateCamp from "../Pages/DashBoard/AdminDashboard/ManageCamps/UpdateCamp
 import CampDetails from "../Components/CampDetails";
 import PrivateRoute from "./PrivateRoute";
 import Payment from "../Pages/DashBoard/UserDashBoard/Payment/Payment";
-import PartcipantApproval from "../Pages/DashBoard/AdminDashboard/ParticipantApproval/PartcipantApproval";
+import ErrorPage from "../Components/ErrorPage";
 
 
 
@@ -31,8 +31,7 @@ import PartcipantApproval from "../Pages/DashBoard/AdminDashboard/ParticipantApp
     {
       path: "/",
       element: <Layout></Layout>,
-      errorElement: <><h2> this is error page </h2>
-      <Link to={"/"}><button>Go to Home</button></Link></>,
+      errorElement: <ErrorPage/>,
       children:[
         {
             path: "/",

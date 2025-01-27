@@ -17,9 +17,7 @@ const CampDetails = () => {
     const[camp, setCamp]=useState(null)
     const {id:campID} = useParams()
     const [allCamps, refetch]=useCamps()
-    // const camp=allCamps?.find(camp=>camp._id=== campID.id)
-    console.log(allCamps)
-//  //
+
   useEffect(() => {
     
     if (allCamps && allCamps.length > 0) {
@@ -28,8 +26,6 @@ const CampDetails = () => {
     }
   }, [allCamps, campID]);
 
-// //
- // const camp = useLoaderData();
 
     const { user } = useAuth()
     const [disabled, setDisabled] = useState(true);
@@ -78,7 +74,7 @@ const CampDetails = () => {
             [name]: value,
         };
 
-        console.log('Updated Form Data:', updatedFormData);
+
 
         // Check if all fields are filled
         if (
@@ -94,25 +90,23 @@ const CampDetails = () => {
 
     }
     const closeModal = () => {
-        console.log("modal closed")
-        setIsOpen(false)
+             setIsOpen(false)
     }
 
 
 
     const onSubmit = (data) => {
-        console.log(data);
+ 
         closeModal();
         const registration = {campID:_id, campName, campFee, location, healthCareProf, participantName: user.displayName, participantEmail: user.email, ...data }
-        console.log(registration)
+     
         axiosSecurely.post("/participants", registration)
             .then(res => {
                 if (res.data.insertedId) {
 
                     const currentParticipants = participants + 1;
                     const cpc = { participants: currentParticipants };
-                    console.log(cpc)
-                    axiosSecurely.patch(`/camps/pCount/${_id}`, cpc)
+                                   axiosSecurely.patch(`/camps/pCount/${_id}`, cpc)
                         .then(res => {
                             if (res.data.modifiedCount > 0) {
                                 refetch();
@@ -165,7 +159,7 @@ const CampDetails = () => {
                     <p></p>
                     <div className="card-actions justify-end">
                         <button onClick={openModal}
-                            className="btn btn-primary">Join Camp!</button>
+                            className="btn btn-primary bg-secondary border-none">Join Camp!</button>
                     </div>
                 </div>
             </div>

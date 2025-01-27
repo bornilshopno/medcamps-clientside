@@ -32,7 +32,7 @@ const Analytics = () => {
     const totalFeePaid = paidCamps?.reduce((total, current) => total + parseFloat(current.campFee), 0) || 0;
     const totalFeeRegistered = registeredCamps?.reduce((total, current) => total + parseFloat(current.campFee), 0) || 0;
     const feedbacks = (registeredCamps?.filter(camp => camp.feedbackStatus != null))?.length || 0;
-    console.log("registered", campRegistered, "fees", totalFeePaid, "confirmed", numberofConfirmedCamps, "paid", numberofPaidCamps, "totalFee", totalFeeRegistered, "feedbacks", feedbacks)
+   
 
     const data01 = [{ "name": "Paid Camps", "value": numberofPaidCamps }, { "name": "UnPaid Camps", "value": (campRegistered - numberofPaidCamps) }]
     const data02 = [{ "name": "Registered Camps Fees", "value": totalFeeRegistered }, { "name": "Paid CampFees", "value": totalFeePaid }]

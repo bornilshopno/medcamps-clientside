@@ -18,17 +18,13 @@ const UpdateProfile = () => {
     } = useForm()
 
     const onSubmit = (data) => {
-        console.log(data);
         updateUserProfile(data.name, data.photoURL)
             .then(() => {
-                console.log("user profile updated");
                 const userInfo = {
                     name: data.name,
                 }
-                console.log(userInfo);
                 axiosSecurely.patch(`/users/user/${user.email}`, userInfo)
                     .then(res => {
-                        console.log(res);
                         if (res.data.modifiedCount > 0) {
                             Swal.fire({
                                 position: "top-end",

@@ -16,11 +16,7 @@ const DashboardLayout = () => {
     const { logout, user } = useAuth();
     const navigate = useNavigate()
     const location = useLocation()
-    //     console.log(location)
-    // console.log(user)
-    // const userName= user?.displayName.split(" ")
-    // const userLastName=userName[userName.length-1]
-    // console.log(userName, userLastName)
+ 
     return (
         <div>
             <div className="flex bg-primary ">
@@ -34,7 +30,7 @@ const DashboardLayout = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex min-h-screen">
+            <div className="flex min-h-[90vh]">
                 <div className="bg-primary flex flex-col justify-between">
                     <div>
                         {isAdmin ?
@@ -63,7 +59,7 @@ const DashboardLayout = () => {
                     </div>
 
                 </div>
-                <div className="flex-grow px-4 lg:px-10 pt-4 lg:pt-10">
+                <div className="flex-grow px-4 lg:px-10 pt-3 lg:pt-5">
                     {(location.pathname === "/dashboard" && isAdmin && <AdminProfile />) || (location.pathname === "/dashboard" && !isAdmin && <UserProfile />) || <Outlet></Outlet>}
 
                 </div>

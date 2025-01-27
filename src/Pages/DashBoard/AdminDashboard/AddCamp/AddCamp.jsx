@@ -16,10 +16,7 @@ const AddCamp = () => {
     } = useForm()
 
     const [healthCareProf, setHealthCareProf] = useState([""])
-    // console.log(healthCareProf,'porerta', healthCareProf[0])
-   
-    //healthcare proffessional 
-    // Handle healthcare professionals array
+  
     const handleHealthCareProfChange = (index, value) => {
         const updatedProf = [...healthCareProf];
         updatedProf[index] = value;
@@ -52,7 +49,7 @@ const AddCamp = () => {
             console.log(res.data)
             if(res.data.insertedId){
                 Swal.fire({
-                    title: "Custom animation with Animate.css",
+                    title: "New Camp Added Successfully!",
                     showClass: {
                       popup: `
                         animate__animated
@@ -80,6 +77,7 @@ const AddCamp = () => {
         <div>
             <DashboardTitle title={"New Camp Details:"}></DashboardTitle>
             <div>
+           
                 <form className="" onSubmit={handleSubmit(onSubmit)}>
                     {/* Camp Name */}
                     <div className="form-control">

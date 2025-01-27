@@ -26,7 +26,7 @@ const AdminProfile = () => {
                     <h2>{user?.phoneNumber ? user.phoneNumber : "...not provided"}</h2>
                     <p>-------------------------------</p>
                     <p>Role @MedCamps:</p>
-                    <h2>Organizerrrrr</h2>
+                    <h2>Organizer</h2>
                     <p>-------------------------------</p>
                     <p>MedCamps Membership ID:</p>
                     <h2>{user?.uid}</h2>

@@ -30,7 +30,6 @@ const Login = () => {
         userLogin(data.email, data.password)
         .then(res => {
             const user = res.user;
-            console.log(user)
             setLoading(false)
             reset();
             navigate(locs, { replace: true })

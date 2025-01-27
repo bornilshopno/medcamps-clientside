@@ -3,16 +3,10 @@ import logo from "../assets/logo-medCamp.png"
 import useAuth from "../Hooks/useAuth";
 import { BsFillMenuButtonWideFill } from "react-icons/bs";
 
-{/* <li>
-<a>Parent</a>
-<ul className="p-2">
-  <li><a>Submenu 1</a></li>
-  <li><a>Submenu 2</a></li>
-</ul>
-</li> */}
+
 
 const Navbar = () => {
-const{user,logout,registered, setRegistered}=useAuth()
+const{user,logout,setRegistered}=useAuth()
 
     const links=<>
             <li><NavLink to={"/"}>Home</NavLink></li>
@@ -50,7 +44,7 @@ const{user,logout,registered, setRegistered}=useAuth()
   <div tabIndex={0} role="button" className="border-2 border-secondary rounded-xl bg-white p-[2px]">
     <img src={user?.photoURL} alt="" className="h-10 w-10 object-cover rounded-lg"/>
   </div>
-  <ul tabIndex={0} className="dropdown-content menu bg-primary rounded-box z-20 w-52 p-2 shadow">
+  <ul tabIndex={0} className="dropdown-content menu bg-primary rounded-box z-20 w-64 p-2 shadow">
     <li><p>{user.email}</p></li>
     <li><Link to={"/dashboard"}>Dashboard</Link></li>
     <li><button onClick={()=>{logout(); setRegistered(false)}}>Logout</button></li>

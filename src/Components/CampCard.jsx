@@ -1,20 +1,23 @@
+import Aos from "aos";
+import 'aos/dist/aos.css';
 import { FaPeoplePulling, FaUserDoctor } from "react-icons/fa6";
 import { FcAlarmClock, FcCalendar } from "react-icons/fc";
 import { IoLocation } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 
-const CampCard = ({ camp }) => {
+const CampCard = ({ camp , columns }) => {
 
   // eslint-disable-next-line react/prop-types
   const { _id, campName, campImage, campFee, dateStart, dateEnd, timeStart, timeEnd, location, healthCareProf, participants } = camp;
-
+  Aos.init();
 
   return (
     <div className="shadow-xl rounded-lg relative">
-      <h1 className="card-title bg-primary rounded-t-lg pl-2">{campName}</h1>
+      <h1 className={`card-title bg-primary rounded-t-lg pl-2 ${(columns===4) ? "h-12 text-base" : ""}`}>{campName}</h1>
       <div className="card  ">
-        {/* lg:card-side  */}
+        
+  
 
         <div className="flex-1 bg-primary">
 
@@ -29,7 +32,7 @@ const CampCard = ({ camp }) => {
           <p className="flex gap-1 items-center text-secondary"><FcCalendar /> : {dateStart}-to-{dateEnd}</p>
           <p className="flex gap-1 items-center text-secondary"><FcAlarmClock />: {timeStart}-to-{timeEnd}</p>
           <p className="flex gap-1 items-center text-secondary">Camp Fee :${campFee}</p>
-          <p className="flex gap-1 items-center bg-secondary absolute top-2 right-2 badge rounded-md border-none"> <FaPeoplePulling />{participants}</p>
+          <p className="flex gap-1 items-center bg-amber-500 absolute top-2 right-2 badge rounded-md border-none" data-aos="zoom-in"> <FaPeoplePulling />{participants}</p>
           <div className="h-16"><h2 className="flex gap-1 items-center text-secondary"><FaUserDoctor />Consultants: </h2>
             {healthCareProf.map((prof, index) =>
               <h1 key={index} className="flex gap-1 items-center text-secondary"> {prof}</h1>

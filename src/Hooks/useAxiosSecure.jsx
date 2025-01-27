@@ -4,16 +4,15 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 export const axiosSecurely = axios.create({
-    baseURL: "http://localhost:3000"
+    baseURL: "https://server-side-med-camps.vercel.app"
 })
 
 const useAxiosSecure = () => {
-    const{logOut}=useAuth();
-    const navigate=useNavigate()
+    const { logOut } = useAuth();
+    const navigate = useNavigate()
     //request cases=>
     axiosSecurely.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token')//getting token from local storage
-        // console.log("request stopped by interceptor", token);
         config.headers.authorization = `Have ${token}`//sending token with fetch request to server
         return config;
     },
@@ -21,25 +20,25 @@ const useAxiosSecure = () => {
             Promise.reject(error)
         }
     );
-//response cases
-//useEffect used to navigate and logout user
+    //response cases
+    //useEffect used to navigate and logout user
 
-useEffect(()=>{
-    axiosSecurely.interceptors.response.use(function(response){
-        return response
-    }, 
-    async(error)=>{
-        const status= error.response.status;
-        if (status===401 || status===403){
-            await logOut();
-            navigate("/join-us")
-        }
-        return Promise.reject(error);
-    }
-    )
-},[logOut, navigate])
+    useEffect(() => {
+        axiosSecurely.interceptors.response.use(function (response) {
+            return response
+        },
+            async (error) => {
+                const status = error.response.status;
+                if (status === 401 || status === 403) {
+                    await logOut();
+                    navigate("/join-us")
+                }
+                return Promise.reject(error);
+            }
+        )
+    }, [logOut, navigate])
 
-return axiosSecurely
+    return axiosSecurely
 };
 
 export default useAxiosSecure;

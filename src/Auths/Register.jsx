@@ -19,7 +19,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();//
   const onSubmit = async (data) => {
-    console.log(data);
+ 
     //image upload to imgbb and then get an url
     const imageFile = { image: data.image[0] }
     const res = await axiosPublicly.post(image_hosting_api, imageFile, {
@@ -27,28 +27,23 @@ const Register = () => {
         'content-type': 'multipart/form-data'
       }
     });
-    console.log(res.data)
+
 
     createUser(data.email, data.password)
       .then(result => {
         const loggedUser = result.user;
-        console.log(loggedUser)
-        console.log(data.name, data.image)
-
-        console.log(res.data)
+      
         if (res.data.success) {
           updateUserProfile(data.name, res.data.data.display_url)
           .then(() => {
-            console.log("user profile updated");
-            const userInfo = {
+                      const userInfo = {
               name: data.name,
               email: data.email,
               role:"user"
             }
             axiosPublicly.post('/users', userInfo)
-              .then(res => {console.log(res);
+              .then(res => {
                 if (res.data._id) {
-                 console.log("user info successfully posted in Databas")
                   reset();
                   logout();
                   setRegistered(true);

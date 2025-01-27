@@ -21,16 +21,16 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             //jwt => get token and set client
             if (currentUser) {
-                const userInfo = {email:currentUser.email};
+                const userInfo = { email: currentUser.email };
                 axiosPublicly.post("jwt", userInfo)
-                .then(res=>{
-                    if (res.data.token) {
-                        localStorage.setItem('access-token', res.data.token);
-                        //can be checked from client side=>inspect==>Application==>LocalStorage==>clientURL[when login/logout]
-                    }
-                })
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem('access-token', res.data.token);
+                            //can be checked from client side=>inspect==>Application==>LocalStorage==>clientURL[when login/logout]
+                        }
+                    })
             }
-            else{
+            else {
                 //TO DO : remove token(if token stored in the client side [localStorage, caching, inMemory])
                 //for HTTP only== cookies need to remove from server side
                 localStorage.removeItem('access-token')
@@ -39,10 +39,8 @@ const AuthProvider = ({ children }) => {
 
         })
         return (() => unSubscribe())
-    }, [auth,axiosPublicly])
+    }, [auth, axiosPublicly])
 
-
-// console.log('authprovider',user)
 
     const createUser = (email, password) => {
         setLoading(true);
