@@ -23,7 +23,7 @@ const CampCard = ({ camp , columns }) => {
 
           <img
             src={campImage}
-            className="rounded-t-md "
+            className={`rounded-t-md w-full h-52  ${(columns===4) ? "lg:h-52" : "lg:h-72"} object-cover`}
             alt="Album" />
         </div>
         <div className="card-body p-4 flex-1 gap-0">

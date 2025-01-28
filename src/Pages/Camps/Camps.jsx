@@ -35,11 +35,11 @@ const Camps = () => {
             </Helmet>
             <div className="flex justify-center items-center gap-5 Lg:gap-10 flex-col-reverse md:flex-row items center py-5 w-10/12 mx-auto">
                 <div className="flex join justify-between  overflow-hidden rounded-xl focus-within:ring w-[255px] border-2 border-primary">
-                    <input onChange={e => setSearch(e.target.value)} type="text" name="searchbox" placeholder="type to search" className="focus:outline-none bg-white text-gray-600 text-center" />
-                    <button className="btn btn-sm  rounded-l-none bg-primary dark:bg-[#6A609F]  border-none" onClick={(e) => setSearch(e.target.searchbox.value)}> Search</button></div>
+                    <input onChange={e => setSearch(e.target.value)} type="text" name="searchbox" placeholder="type to search" className="focus:outline-none bg-green-100 text-gray-600 text-center" />
+                    <button className="btn btn-sm  rounded-l-none bg-primary   border-none" onClick={(e) => setSearch(e.target.searchbox.value)}> Search</button></div>
                 <div className="dropdown dropdown-bottom dropdown-end border border-primary rounded-lg">
                     <div tabIndex={0} role="button" >
-                        {sortBy ? <h1 className="btn btn-sm bg-primary dark:bg-[#6A609F] border-none text-gray-700">Sorted by {sortBy}</h1> : <h1 className="btn btn-sm bg-white text-gray-700">Sort Camps?</h1>}
+                        {sortBy ? <h1 className="btn btn-sm bg-primary  border-none">Sorted by {sortBy}</h1> : <h1 className="btn btn-sm bg-white text-gray-700">Sort Camps?</h1>}
 
 
                     </div>
