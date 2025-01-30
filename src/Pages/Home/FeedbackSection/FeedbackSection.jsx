@@ -24,7 +24,6 @@ const FeedbackSection = () => {
         queryKey: ["feedbacks"],
         queryFn: async () => {
             const res = await axiosSecurely.get("/feedbacks");
-            console.log(res.data)
             return res.data
         }
     });
@@ -32,43 +31,43 @@ const FeedbackSection = () => {
         <div>
             <SectionTitles heading={"Feedback & Ratings"} subHeading={"--feedback matters to have an overview--"}>
             </SectionTitles>
-          
-          <div className="py-10 ">
-          <Swiper navigation={true} autoplay={{
-                delay: 1500,
-                disableOnInteraction: false,
-            }}
-                pagination={{
-                    clickable: true,
+
+            <div className="py-10 ">
+                <Swiper navigation={true} autoplay={{
+                    delay: 1500,
+                    disableOnInteraction: false,
                 }}
-                modules={[Autoplay, Pagination, Navigation]} className="mySwiper">
-                {
-                    feedbacks?.map(feedback =>
-                        <SwiperSlide key={feedback._id}>
-                            <div className="w-11/12 mx-auto flex flex-col justify-center mb-10">
-                                <FaQuoteLeft className="mx-auto mb-10 text-gray-300" />
-                                <Rating
-                                    className="mx-auto"
-                                    style={{ maxWidth: 180 }}
-                                    value={feedback.rating}
-                                    itemStyles={myStyles}
-                                    readOnly
-                                />
-                                <h2 className="text-center text-2xl font-semibold pb-10">{feedback?.feedback}</h2>
-                                <FaQuoteRight className="mx-auto text-gray-300" />
-                                <div className="flex gap-2 text-sm italic justify-center">
-                                    <h2 className="">{feedback?.participantName} 's feedback on {feedback?.campName}</h2>
-                                    <p className="text-gray-500 text-sm">Dated: {feedback.date && format(new Date(feedback.date), 'P')}</p>
+                    pagination={{
+                        clickable: true,
+                    }}
+                    modules={[Autoplay, Pagination, Navigation]} className="mySwiper">
+                    {
+                        feedbacks?.map(feedback =>
+                            <SwiperSlide key={feedback._id}>
+                                <div className="w-11/12 mx-auto flex flex-col justify-center mb-10">
+                                    <FaQuoteLeft className="mx-auto mb-10 text-gray-300" />
+                                    <Rating
+                                        className="mx-auto"
+                                        style={{ maxWidth: 180 }}
+                                        value={feedback.rating}
+                                        itemStyles={myStyles}
+                                        readOnly
+                                    />
+                                    <h2 className="text-center text-2xl font-semibold pb-10">{feedback?.feedback}</h2>
+                                    <FaQuoteRight className="mx-auto text-gray-300" />
+                                    <div className="flex gap-2 text-sm italic justify-center">
+                                        <h2 className="">{feedback?.participantName} 's feedback on {feedback?.campName}</h2>
+                                        <p className="text-gray-500 text-sm">Dated: {feedback.date && format(new Date(feedback.date), 'P')}</p>
 
 
+                                    </div>
                                 </div>
-                            </div>
-                        </SwiperSlide>
-                    )
-                }
+                            </SwiperSlide>
+                        )
+                    }
 
-            </Swiper>
-          </div>
+                </Swiper>
+            </div>
         </div>
     );
 };

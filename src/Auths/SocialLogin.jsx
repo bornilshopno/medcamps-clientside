@@ -29,8 +29,8 @@ const SocialLogin = () => {
     }
     return (
         <div>
-            <div className="mt-2 p-2 bg-primary  w-44 rounded-md mx-auto lg:mr-0 ">
-                <button className="flex gap-2 items-center btn-sm mx-auto btn " onClick={handleGoogleSignIn}><FaGoogle></FaGoogle> Join with Gmail</button>
+            <div className="mt-2 p-2 bg-primary  w-60 rounded-md mx-auto lg:mr-0 ">
+                <button className="flex gap-2 items-center btn-sm mx-auto btn px-8" onClick={handleGoogleSignIn}><FaGoogle></FaGoogle> Join With Your Gmail </button>
             </div>
         </div>
     );

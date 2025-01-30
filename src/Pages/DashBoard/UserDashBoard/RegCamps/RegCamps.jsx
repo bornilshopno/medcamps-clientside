@@ -166,7 +166,7 @@ const RegCamps = () => {
 
 
                         <div className="flex join justify-center lg:mx-auto rounded-xl focus-within:ring w-[255px] border-2 border-gray-300 my-3">
-                            <input onChange={e => setSearch(e.target.value)} type="text" name="searchbox" placeholder="type campName/Fee" className="focus:outline-none bg-white text-gray-600 text-center rounded-l-xl" />
+                            <input onChange={e => setSearch(e.target.value)} type="text" name="searchbox" placeholder="type campName/Fee" className="focus:outline-none bg-green-100 text-gray-600 text-center rounded-l-xl" />
                             <button className="btn btn-sm  rounded-l-none bg-gray-300 border-none" onClick={(e) => setSearch(e.target.searchbox.value)}> Search</button>
 
 

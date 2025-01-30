@@ -13,9 +13,13 @@ const Camps = () => {
     const [showCamps, setShowCamps] = useState([])
     const [sortBy, setsortBy] = useState("")
     const [search, setSearch] = useState("");
-    const [columns, setColumns] = useState(3)
+    const [columns, setColumns] = useState(4)
 
-
+    const columnClassMap = {
+        2: "lg:grid-cols-2",
+        3: "lg:grid-cols-3",
+        4: "lg:grid-cols-4", // Explicitly map for all possible values
+      };
 
     useEffect(() => {
 
@@ -39,11 +43,11 @@ const Camps = () => {
                     <button className="btn btn-sm  rounded-l-none bg-primary   border-none" onClick={(e) => setSearch(e.target.searchbox.value)}> Search</button></div>
                 <div className="dropdown dropdown-bottom dropdown-end border border-primary rounded-lg">
                     <div tabIndex={0} role="button" >
-                        {sortBy ? <h1 className="btn btn-sm bg-primary  border-none">Sorted by {sortBy}</h1> : <h1 className="btn btn-sm bg-white text-gray-700">Sort Camps?</h1>}
+                        {sortBy ? <h1 className="btn btn-sm bg-primary  border-none">Sorted by {sortBy}</h1> : <h1 className="btn btn-sm bg-green-100 text-gray-700">Sort Camps?</h1>}
 
 
                     </div>
-                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 text-gray-600 rounded-box z-[1] w-52 p-2 shadow">
+                    <ul tabIndex={0} className="dropdown-content menu bg-green-100 text-gray-600 rounded-box z-[1] w-52 p-2 shadow">
                         <li onClick={() => setsortBy("participants")}><a>Most Registered</a></li>
                         <li onClick={() => setsortBy("campFee")}><a>Camp Fees</a></li>
                         <li onClick={() => setsortBy("campName")}><a>Alphabetically</a></li>
@@ -58,8 +62,8 @@ const Camps = () => {
                 </div>
             </div>
             {search && <p className="text-center">Searched by : <span className="text-primary font-semibold">{search}</span></p>}
-            {/* </div> */}
-            <div className={`w-11/12 mx-auto grid sm:grid-cols-2 lg:grid-cols-${columns} gap-4 py-5`} >
+        
+            <div className={`w-11/12 mx-auto grid sm:grid-cols-2 ${columnClassMap[columns] || "lg:grid-cols-3"} gap-4 py-5`} >
                 {showCamps?.map(camp =>
                     <CampCard key={camp._id} camp={camp} columns={columns}></CampCard>
 
