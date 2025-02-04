@@ -43,7 +43,7 @@ const PaymentHistory = () => {
                             <td>{payment.campPaid}</td>
                             <td className="text-center">${payment.fee}</td>
                             <td className="text-center">{ payment.transactionID ? <p className="text-secondary">Paid</p> : <p className="text-amber-600">Pending</p>}</td>
-                            <td className="text-center">{ payment.status ? <p className="text-secondary">Confirmed</p> : <p className="text-amber-600">Pending</p>}</td>
+                            <td className="text-center">{ payment.status==="approved" ? <p className="text-secondary">Confirmed</p> : <p className="text-amber-600">Pending</p>}</td>
                            
                         </tr>
                         )}
