@@ -67,7 +67,7 @@ This website will serve as a Medical Camp Management System (MCMS) for both the 
 **https://github.com/bornilshopno/medcamps-clientside**
 
 * Server Side
-**https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-bornilshopno.git**
+**https://github.com/bornilshopno/medcamps-serverside**
 
 ### Live Page Link:
 
