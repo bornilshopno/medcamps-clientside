@@ -6,9 +6,10 @@ const Footer = () => {
         <div>
            <div className="footer bg-primary text-white p-10 dark:bg-secondary">
   <aside>
-  <Link>
-  <img src={logo} alt="logo" className='h-10 rounded-sm' />
-  </Link>
+ <div className="p-[1px] bg-white rounded-sm">
+    <Link>
+    <img src={logo} alt="logo" className="h-10 rounded-sm " /></Link>
+    </div>
     <p>
       Arranging medical camps since 2019
     </p>

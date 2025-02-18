@@ -64,10 +64,10 @@ const Navbar = () => {
               <button onClick={()=> darkModeHandler()}>
       {
           
-          dark && <IoSunny className="text-2xl"/> // render sunny when dark is true
+          dark && <IoSunny className="text-3xl "/> // render sunny when dark is true
       }
       {
-          !dark && <IoMoon className="text-2xl"/> // render moon when dark is false
+          !dark && <IoMoon className="text-3xl text-gray-700"/> // render moon when dark is false
       }
  </button>
               </div>

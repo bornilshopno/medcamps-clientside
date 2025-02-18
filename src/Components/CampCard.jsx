@@ -26,7 +26,7 @@ const CampCard = ({ camp , columns }) => {
             className={`rounded-t-md w-full h-52  ${(columns===4) ? "lg:h-52" : "lg:h-72"} object-cover`}
             alt="Album" />
         </div>
-        <div className="card-body p-4 flex-1 gap-0 border rounded-b-lg">
+        <div className="card-body p-4 flex-1 gap-0 border-x border-b rounded-b-lg">
 
           <p className="flex gap-1 items-center text-secondary"><IoLocation /> {location.split(",")[1] || "TBC"}</p>
           <p className="flex gap-1 items-center text-secondary"><FcCalendar /> : {dateStart}-to-{dateEnd}</p>

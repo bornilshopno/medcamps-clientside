@@ -55,7 +55,7 @@ const Login = () => {
     return (
         <div>
 
-            <div className=" bg-base-200 max-w-96 mx-auto">
+            <div className=" bg-base-200 max-w-96 mx-auto text-gray-700">
                 <div className="hero-content ">
                     <div className="card bg-base-100 w-full  shrink-0 shadow-2xl ">
                         <form className="card-body pb-0 relative" onSubmit={handleSubmit(onSubmit)}>

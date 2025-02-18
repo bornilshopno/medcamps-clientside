@@ -16,7 +16,7 @@ const JoinUs = () => {
             <Helmet>
                 <title>MedCamps || JoinUs</title>
             </Helmet>
-            <div className="md:flex gap-2 lg:gap-20 mx-auto md:justify-center lg:pt-5">
+            <div className="md:flex gap-2 lg:gap-20 mx-auto md:justify-center lg:pt-5 text-gray-700">
                 <div className="flex flex-col-reverse md:flex-col gap-2">
 
                     <div className="mx-auto">
