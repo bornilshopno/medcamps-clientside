@@ -46,7 +46,7 @@ import ErrorPage from "../Components/ErrorPage";
         },
         {
           path:"/camp-detail/:id",
-          element: <PrivateRoute><CampDetails/></PrivateRoute>,
+          element: <CampDetails/>,
         },
       ]
     },

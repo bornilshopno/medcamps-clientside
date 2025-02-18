@@ -2,21 +2,25 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo-medCamp.png"
 import useAuth from "../Hooks/useAuth";
 import { BsFillMenuButtonWideFill } from "react-icons/bs";
+import { IoMoon, IoSunny } from "react-icons/io5";
+import { useState } from "react";
 
 
 
 const Navbar = () => {
   const { user, logout, setRegistered } = useAuth()
-
+  const [dark, setDark]=useState(false)
   const links = <>
     <li><NavLink to={"/"}>Home</NavLink></li>
     <li><NavLink to={"/camps"}>Available Camps</NavLink></li>
-
-
   </>
+   const darkModeHandler = () => {
+    setDark(!dark);
+    document.body.classList.toggle("dark");
+}
   return (
     <div>
-      <div className="navbar bg-primary text-white px-5 md:px-7 lg:px-10 fixed z-50">
+      <div className="navbar bg-primary text-white px-5 md:px-7 lg:px-10 fixed z-50 dark:bg-secondary">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost p-0 lg:hidden">
@@ -29,15 +33,17 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link>
-            <img src={logo} alt="logo" className="h-10 rounded-sm" /></Link>
+   <div className="p-[1px] bg-white rounded-sm">
+   <Link>
+   <img src={logo} alt="logo" className="h-10 rounded-sm " /></Link>
+   </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-3">
             {links}
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end gap-3 items-center">
           {user ?
 
             <div className="dropdown dropdown-end">
@@ -54,6 +60,17 @@ const Navbar = () => {
             :
             <Link to={"/join-us"}>
               <button>Join Us</button></Link>}
+              <div>
+              <button onClick={()=> darkModeHandler()}>
+      {
+          
+          dark && <IoSunny className="text-2xl"/> // render sunny when dark is true
+      }
+      {
+          !dark && <IoMoon className="text-2xl"/> // render moon when dark is false
+      }
+ </button>
+              </div>
         </div>
       </div>
       <div className="h-[64px] ">

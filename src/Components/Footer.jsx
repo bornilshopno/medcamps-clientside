@@ -4,7 +4,7 @@ import logo from '../assets/logo-medCamp.png'
 const Footer = () => {
     return (
         <div>
-           <div className="footer bg-primary text-white p-10">
+           <div className="footer bg-primary text-white p-10 dark:bg-secondary">
   <aside>
   <Link>
   <img src={logo} alt="logo" className='h-10 rounded-sm' />
@@ -52,7 +52,7 @@ const Footer = () => {
     </div>
   </nav>
 </div>
-<div className="footer footer-center bg-primary text-white p-4">
+<div className="footer footer-center bg-primary text-white p-4 dark:bg-secondary">
   <aside>
     <p>Copyright © {new Date().getFullYear()} - All right reserved by MedCamps Corporation</p>
   </aside>

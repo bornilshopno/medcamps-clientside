@@ -13,7 +13,7 @@ const CampCard = ({ camp , columns }) => {
   Aos.init();
 
   return (
-    <div className="shadow-xl rounded-lg relative">
+    <div className="shadow-xl rounded-lg relative ">
       <h1 className={`card-title bg-primary rounded-t-lg pl-2 ${(columns===4) ? "h-12 text-base" : ""}`}>{campName}</h1>
       <div className="card  ">
         
@@ -26,7 +26,7 @@ const CampCard = ({ camp , columns }) => {
             className={`rounded-t-md w-full h-52  ${(columns===4) ? "lg:h-52" : "lg:h-72"} object-cover`}
             alt="Album" />
         </div>
-        <div className="card-body p-4 flex-1 gap-0">
+        <div className="card-body p-4 flex-1 gap-0 border rounded-b-lg">
 
           <p className="flex gap-1 items-center text-secondary"><IoLocation /> {location.split(",")[1] || "TBC"}</p>
           <p className="flex gap-1 items-center text-secondary"><FcCalendar /> : {dateStart}-to-{dateEnd}</p>
@@ -39,7 +39,7 @@ const CampCard = ({ camp , columns }) => {
             )}
           </div>
           <div className="card-actions justify-end">
-            <Link to={`/camp-detail/${_id}`}><button className="btn border-none btn-sm bg-primary">...More Details</button></Link>
+            <Link to={`/camp-detail/${_id}`}><button className="btn border-none btn-sm bg-primary">...See More</button></Link>
           </div>
         </div>
       </div>

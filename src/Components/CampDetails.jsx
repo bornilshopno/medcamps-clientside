@@ -1,4 +1,4 @@
-import {  useParams } from "react-router-dom";
+import {  Link, useParams } from "react-router-dom";
 import SectionTitles from "./SectionTitles";
 import { FaPeoplePulling, FaUserDoctor } from "react-icons/fa6";
 import { FcCalendar, FcAlarmClock } from "react-icons/fc";
@@ -158,8 +158,11 @@ const CampDetails = () => {
                     </div>
                     <p></p>
                     <div className="card-actions justify-end">
+                        {user ? 
                         <button onClick={openModal}
-                            className="btn btn-primary bg-secondary border-none">Join Camp!</button>
+                        className="btn  bg-secondary border-none">Join Camp!</button>:
+                        <Link to={"/join-us"}><button className="btn  bg-secondary border-none"> LogIn to Join Camp</button></Link>
+                        }
                     </div>
                 </div>
             </div>
