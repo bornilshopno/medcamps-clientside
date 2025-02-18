@@ -76,30 +76,30 @@ const AddCamp = () => {
     return (
         <div>
             <DashboardTitle title={"New Camp Details:"}></DashboardTitle>
-            <div>
+            <div className="">
            
                 <form className="" onSubmit={handleSubmit(onSubmit)}>
                     {/* Camp Name */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Camp Name :</span>
+                            <span className="label-text dark:text-white">Camp Name :</span>
                         </label>
-                        <input type="text" placeholder="Camp Name" {...register("campName")} className="input input-bordered w-full h-10" required />
+                        <input type="text" placeholder="Camp Name" {...register("campName")} className="input input-bordered w-full h-10 dark:bg-gray-200" required />
                     </div>
                     {/* Camp Banner Image */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Camp Image :</span>
+                            <span className="label-text dark:text-white">Camp Image :</span>
                         </label>
-                        <input type="url" placeholder="Camp Image URL" {...register("campImage")} className="input input-bordered h-10" required />
+                        <input type="url"  placeholder="Camp Image URL" {...register("campImage")} className="input input-bordered h-10 dark:bg-gray-200" required />
 
                     </div>
                     {/* Camp Fees */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Camp Fees :</span>
+                            <span className="label-text dark:text-white">Camp Fees :</span>
                         </label>
-                        <input type="number" placeholder="Camp Fees" {...register("campFee")} className="input input-bordered w-full" required />
+                        <input type="number" placeholder="Camp Fees" {...register("campFee")} className="input input-bordered w-full dark:bg-gray-200" required />
                     </div>
                     {/* Camp Schedule  */}
                     <div className="lg:flex gap-10">
@@ -107,50 +107,50 @@ const AddCamp = () => {
                         <div className="flex gap-5">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Start Date :</span>
+                                    <span className="label-text dark:text-white">Start Date :</span>
                                 </label>
-                                <input type="date"   {...register("dateStart")} className="input input-bordered w-full h-10" required />
+                                <input type="date"   {...register("dateStart")} className="input input-bordered w-full h-10 dark:bg-gray-200" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">End Date :</span>
+                                    <span className="label-text dark:text-white">End Date :</span>
                                 </label>
-                                <input type="date"  {...register("dateEnd")} className="input input-bordered w-full h-10" />
+                                <input type="date"  {...register("dateEnd")} className="input input-bordered w-full h-10 dark:bg-gray-200" />
                             </div>
                         </div>
                         {/* time */}
                         <div className="flex gap-5">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Start Time :</span>
+                                    <span className="label-text dark:text-white">Start Time :</span>
                                 </label>
-                                <input type="time"   {...register("timeStart")} className="input input-bordered w-full h-10" required />
+                                <input type="time"   {...register("timeStart")} className="input input-bordered w-full h-10 dark:bg-gray-200" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">End Time :</span>
+                                    <span className="label-text dark:text-white">End Time :</span>
                                 </label>
-                                <input type="time"  {...register("timeEnd")} className="input input-bordered w-full h-10" />
+                                <input type="time"  {...register("timeEnd")} className="input input-bordered w-full h-10 dark:bg-gray-200" />
                             </div>
                         </div>
                     </div>
                     {/* Camp Location */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Location :</span>
+                            <span className="label-text dark:text-white">Location :</span>
                         </label>
-                        <input type="text" placeholder="Location" {...register("location")} className="input input-bordered w-full h-10" required />
+                        <input type="text" placeholder="Location" {...register("location")} className="input input-bordered w-full h-10 dark:bg-gray-200" required />
                     </div>
                     {/* Camp Description */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Description :</span>
+                            <span className="label-text dark:text-white">Description :</span>
                         </label>
-                        <input type="text" placeholder="Camp Description" {...register("description")} className="input input-bordered w-full h-10" required />
+                        <input type="text" placeholder="Camp Description" {...register("description")} className="input input-bordered w-full h-10 dark:bg-gray-200" required />
                     </div>
                     {/* Camp : Health Care Professionals */}
                     <div className="mb-4">
-                        <label className="block text-gray-700 font-medium mb-2">Health Care Professionals</label>
+                        <label className="block text-gray-700 font-medium mb-2 dark:text-white">Health Care Professionals</label>
                         {healthCareProf.map((prof, index) => (
                             <div key={index} className="flex items-center mb-2">
                                 <input
@@ -158,7 +158,7 @@ const AddCamp = () => {
                                     value={prof}
                                     onChange={(e) => handleHealthCareProfChange(index, e.target.value)}
                                     placeholder={`Enter professional ${index + 1}`}
-                                    className="flex-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="flex-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-200"
                                 />
                                 <button
                                     type="button"

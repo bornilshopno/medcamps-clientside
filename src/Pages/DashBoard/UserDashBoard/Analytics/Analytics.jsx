@@ -51,7 +51,7 @@ const Analytics = () => {
                 {
                     (registeredCamps.length > 0 ?
                         <>
-                         <div className="border-4 border-primary rounded-lg mb-5">
+                         <div className="border-4 border-primary rounded-lg mb-5 bg-base-200">
                                     <div className="bg-primary">
                                         <h2 className="text-left">Overall Stats</h2>
                                         <hr />                                      
@@ -92,8 +92,8 @@ const Analytics = () => {
                             <div>
                                
                             </div>
-                            <div className="grid lg:grid-cols-2 gap-5 lg:gap-10">
-                                <div className="border-4 border-primary rounded-lg">
+                            <div className="grid lg:grid-cols-2 gap-5 lg:gap-10 ">
+                                <div className="border-4 border-primary rounded-lg bg-base-200" >
                                     <div className="bg-primary">
                                         <h2 className="text-left">Paid Camps</h2>
                                         <hr />
@@ -104,7 +104,7 @@ const Analytics = () => {
                                         <Pie data={data01} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={55} outerRadius={70} fill="#8884d8" label />
                                     </PieChart>
                                 </div>
-                                <div className="border-4 border-primary rounded-lg">
+                                <div className="border-4 border-primary rounded-lg bg-base-200">
                                     <div className="bg-primary">
                                         <h2 className="text-left">Fees for All Registered Camps</h2>
                                         <hr />
@@ -114,7 +114,7 @@ const Analytics = () => {
                                         <Pie data={data02} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={55} outerRadius={70} fill="#58e5cb" label />
                                     </PieChart>
                                 </div>
-                                <div className="border-4 border-primary rounded-lg">
+                                <div className="border-4 border-primary rounded-lg bg-base-200">
                                     <div className="bg-primary">
                                         <h2 className="text-left">Total Camps</h2>
                                         <hr />
@@ -124,7 +124,7 @@ const Analytics = () => {
                                         <Pie data={data03} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={55} outerRadius={70} fill="#44cef6" label />
                                     </PieChart>
                                 </div>
-                                <div className="border-4 border-primary rounded-lg">
+                                <div className="border-4 border-primary rounded-lg bg-base-200">
                                     <div className="bg-primary">
                                         <h2 className="text-left">Registered Camps</h2>
                                         <hr />

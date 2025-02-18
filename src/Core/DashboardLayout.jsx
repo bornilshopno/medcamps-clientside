@@ -63,7 +63,7 @@ const DashboardLayout = () => {
                     </div>
 
                 </div>
-                <div className="flex-grow px-4 lg:px-10 pt-3 lg:pt-5">
+                <div className="flex-grow px-4 lg:px-10 pt-3 lg:pt-5 dark:bg-secondary text-gray-900">
                     {(location.pathname === "/dashboard" && isAdmin && <AdminProfile />) || (location.pathname === "/dashboard" && !isAdmin && <UserProfile />) || <Outlet></Outlet>}
 
                 </div>

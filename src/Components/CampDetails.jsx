@@ -143,7 +143,7 @@ const CampDetails = () => {
                         alt="campImage" />
                 </figure>
                 <div className="card-body flex-1">
-                    <h2 className="card-title">{description}</h2>
+                    <h2 className="card-title text-secondary">{description}</h2>
                     <p className="flex gap-1 items-center text-secondary"><IoLocation /><span className="w-32 text-gray-600">Camp Location : </span>{location}</p>
                     <p className="flex gap-1 items-center text-secondary"><FcCalendar /><span className="w-32 text-gray-600">Camp Date : </span>{dateStart}-to-{dateEnd}</p>
                     <p className="flex gap-1 items-center text-secondary"><FcAlarmClock /><span className="w-32 text-gray-600">Operating Hour : </span>{timeStart}-to-{timeEnd}</p>
