@@ -23,7 +23,7 @@ const DashboardLayout = () => {
              <Helmet>
                 <title>MedCamps || DashBoard</title>
             </Helmet>
-            <div className="flex bg-primary ">
+            <div className="flex bg-primary dark:bg-green-900 ">
                 <div className="w-40 lg:w-56 py-2 px-6">
                     <img src={logo} alt="logo" className="h-10 rounded-sm" />
                 </div>
@@ -35,7 +35,7 @@ const DashboardLayout = () => {
                 </div>
             </div>
             <div className="flex min-h-[90vh]">
-                <div className="bg-primary flex flex-col justify-between">
+                <div className="bg-primary dark:bg-green-900 flex flex-col justify-between">
                     <div>
                         {isAdmin ?
                             <>

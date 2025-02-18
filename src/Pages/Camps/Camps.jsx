@@ -40,8 +40,8 @@ const Camps = () => {
             <div className="flex justify-center items-center gap-5 Lg:gap-10 flex-col-reverse md:flex-row items center py-5 w-10/12 mx-auto">
                 <div className="flex join justify-between  overflow-hidden rounded-xl focus-within:ring w-[255px] border-2 border-primary">
                     <input onChange={e => setSearch(e.target.value)} type="text" name="searchbox" placeholder="type to search" className="focus:outline-none bg-green-100 text-gray-600 text-center" />
-                    <button className="btn btn-sm  rounded-l-none bg-primary   border-none" onClick={(e) => setSearch(e.target.searchbox.value)}> Search</button></div>
-                <div className="dropdown dropdown-bottom dropdown-end border border-primary rounded-lg">
+                    <button className="btn btn-sm  rounded-l-none bg-primary dark:bg-green-800  border-none" onClick={(e) => setSearch(e.target.searchbox.value)}> Search</button></div>
+                <div className="dropdown dropdown-bottom dropdown-end border border-primary dark:border-green-800 rounded-lg">
                     <div tabIndex={0} role="button" >
                         {sortBy ? <h1 className="btn btn-sm bg-primary  border-none">Sorted by {sortBy}</h1> : <h1 className="btn btn-sm bg-green-100 text-gray-700">Sort Camps?</h1>}
 
@@ -55,9 +55,9 @@ const Camps = () => {
                     </ul>
                 </div>
                 <div className="join rounded-lg hidden lg:block">
-                    <button onClick={() => setColumns(2)} className={`join-item btn btn-sm ${(columns == 2) ? "bg-primary" : ""}`}> <TbColumns2 className="text-gray-700 text-xl" /></button>
-                    <button onClick={() => setColumns(3)} className={`join-item btn btn-sm ${(columns == 3) ? "bg-primary" : ""}`}><TbColumns3 className="text-gray-800 text-xl" /></button>
-                    <button onClick={() => setColumns(4)} className={`join-item btn btn-sm ${(columns == 4) ? "bg-primary" : ""}`}><BsColumns className="text-gray-800 text-xl" /></button>
+                    <button onClick={() => setColumns(2)} className={`join-item btn btn-sm ${(columns == 2) ? "bg-primary dark:bg-green-800" : ""}`}> <TbColumns2 className="text-gray-700 text-xl" /></button>
+                    <button onClick={() => setColumns(3)} className={`join-item btn btn-sm ${(columns == 3) ? "bg-primary dark:bg-green-800" : ""}`}><TbColumns3 className="text-gray-800 text-xl" /></button>
+                    <button onClick={() => setColumns(4)} className={`join-item btn btn-sm ${(columns == 4) ? "bg-primary dark:bg-green-800" : ""}`}><BsColumns className="text-gray-800 text-xl" /></button>
 
                 </div>
             </div>

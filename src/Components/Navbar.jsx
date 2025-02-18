@@ -20,7 +20,7 @@ const Navbar = () => {
 }
   return (
     <div>
-      <div className="navbar bg-primary text-white px-5 md:px-7 lg:px-10 fixed z-50 dark:bg-secondary">
+      <div className="navbar bg-primary text-white px-5 md:px-7 lg:px-10 fixed z-50 dark:bg-green-900">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost p-0 lg:hidden">
@@ -33,10 +33,10 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-   <div className="p-[1px] bg-white rounded-sm">
+  
    <Link>
    <img src={logo} alt="logo" className="h-10 rounded-sm " /></Link>
-   </div>
+   
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-3">

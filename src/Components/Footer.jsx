@@ -4,12 +4,10 @@ import logo from '../assets/logo-medCamp.png'
 const Footer = () => {
     return (
         <div>
-           <div className="footer bg-primary text-white p-10 dark:bg-secondary">
+           <div className="footer bg-primary text-white p-10 dark:bg-green-900">
   <aside>
- <div className="p-[1px] bg-white rounded-sm">
-    <Link>
+   <Link>
     <img src={logo} alt="logo" className="h-10 rounded-sm " /></Link>
-    </div>
     <p>
       Arranging medical camps since 2019
     </p>
@@ -53,7 +51,7 @@ const Footer = () => {
     </div>
   </nav>
 </div>
-<div className="footer footer-center bg-primary text-white p-4 dark:bg-secondary">
+<div className="footer footer-center bg-primary text-white p-4 dark:bg-green-900">
   <aside>
     <p>Copyright © {new Date().getFullYear()} - All right reserved by MedCamps Corporation</p>
   </aside>

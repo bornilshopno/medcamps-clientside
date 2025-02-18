@@ -57,7 +57,7 @@ const FeedbackSection = () => {
                                     <FaQuoteRight className="mx-auto text-gray-300" />
                                     <div className="flex gap-2 text-sm italic justify-center">
                                         <h2 className="">{feedback?.participantName} 's feedback on {feedback?.campName}</h2>
-                                        <p className="text-gray-500 text-sm">Dated: {feedback.date && format(new Date(feedback.date), 'P')}</p>
+                                        <p className=" text-sm">Dated: {feedback.date && format(new Date(feedback.date), 'P')}</p>
 
 
                                     </div>
