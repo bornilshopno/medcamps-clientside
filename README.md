@@ -56,11 +56,6 @@ This website will serve as a Medical Camp Management System (MCMS) for both the 
    * sweetalert2
    * swiper
 
-### Run the project locally step-by-step guideline :
-- Open the project folder in editor.
-- See all the technologie version are updated in current version.
-- then open the editor terminal and write npm run dev press enter key.
-- terminal give you a local Server link copy the link and past your browser run the link.
 
 ### GitHub Repository
 * Client Side
