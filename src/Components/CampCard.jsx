@@ -32,7 +32,7 @@ const CampCard = ({ camp , columns }) => {
           <p className="flex gap-1 items-center text-secondary"><FcCalendar /> : {dateStart}-to-{dateEnd}</p>
           <p className="flex gap-1 items-center text-secondary"><FcAlarmClock />: {timeStart}-to-{timeEnd}</p>
           <p className="flex gap-1 items-center text-secondary">Camp Fee :${campFee}</p>
-          <p className="flex gap-1 items-center bg-secondary text-white font-bold absolute top-2 right-2 badge rounded-md border-none" data-aos="zoom-in"> <FaPeoplePulling />{participants}</p>
+          <p className="flex gap-1 items-center bg-secondary dark:bg-green-900 text-white font-bold absolute top-2 right-2 badge rounded-md border-none" data-aos="zoom-in"> <FaPeoplePulling />{participants}</p>
           <div className="h-16"><h2 className="flex gap-1 items-center text-secondary"><FaUserDoctor />Consultants: </h2>
             {healthCareProf.map((prof, index) =>
               <h1 key={index} className="flex gap-1 items-center text-secondary"> {prof}</h1>
