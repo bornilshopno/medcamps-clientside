@@ -87,7 +87,7 @@ const Register = () => {
   return (
     <div>
 
-      <div className=" bg-base-200 max-w-96 mx-auto text-gray-700">
+      <div className=" bg-base-200 max-w-96 mx-auto text-gray-700 rounded-lg my-2">
         <div className="hero-content ">
           <div className="card bg-base-100 w-full shadow-2xl ">
             <form className="card-body pb-0 relative" onSubmit={handleSubmit(onSubmit)}>
@@ -132,7 +132,7 @@ const Register = () => {
                 {errors.photoURL && <span className="text-red-500">This field is required</span>}
               </div>
               <div className="form-control mt-6">
-                <input type="submit" value="Sign UP" className="btn btn-primary" />
+                <input type="submit" value="Sign UP" className="btn btn-primary bg-primary border-none" />
 
               </div>
             </form>

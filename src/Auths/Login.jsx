@@ -79,7 +79,7 @@ const Login = () => {
                                 <input type="text" ref={captchaRef} placeholder="typeCaptcha" name="captcha" className="input input-bordered h-10" onBlur={handleValidateCaptcha} required />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary" disabled={disable}>Login</button>
+                                <button className="btn btn-primary bg-primary border-none" disabled={disable}>Login</button>
                             </div>
                         </form>
                         <p className='text-center pb-4'>New to the website? pls <span className='text-blue-700 font-semibold'><button onClick={() => setRegistered(false)}>Sign Up</button></span> </p>
