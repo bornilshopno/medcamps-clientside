@@ -2,7 +2,7 @@
 # Project: MedCamps
 A website for Managing Medical Camps
 
-### Project Purpose:
+### Project Overview:
 
 This website will serve as a Medical Camp Management System (MCMS) for both the Organizer and the Registered Users equpped with stripe payment options. Also have a landing page and details page for the non registered visitors.
 
@@ -56,6 +56,11 @@ This website will serve as a Medical Camp Management System (MCMS) for both the 
    * sweetalert2
    * swiper
 
+## Step by step guideline to start this project locally :
+** Open the project folder in editor.
+** See all the technologie version are updated in current version.
+** then open the editor terminal and write npm run dev press enter key.
+** terminal give you a local Server link copy the link and past your browser run the link.
 
 ### GitHub Repository
 * Client Side
@@ -67,3 +72,12 @@ This website will serve as a Medical Camp Management System (MCMS) for both the 
 ### Live Page Link:
 
 **https://med-camps.netlify.app/**
+
+
+### Default Credentials
+# for Admin access
+* Email: admin@medcamps.com
+* Password: 1234aA
+# for User access
+* Email: user@medcamps.com
+* Password: 1234aA
